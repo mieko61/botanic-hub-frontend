@@ -1,70 +1,140 @@
-# Getting Started with Create React App
+# Medicinal Plants
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This app is a resource for medicinal herbs and plants. It allows users to learn about their health benefits and how they can be used to treat specific symptoms.
 
-In the project directory, you can run:
+### Problem
 
-### `npm start`
+There is limited access to herbal medicine and its benefits in traditional Western medicine. Although there is a great variety of medicinal plants out there, not many people are aware or have easy access to them and their specific benefits.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### User Profile
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The app is meant for anyone who is looking for natural alternatives to tradicinal medicine to treat specific symptons or conditions. It will have to be intuitive and simple and must contain curated information in order to prevent users from feeling overwhelmed with too much information.
 
-### `npm test`
+### Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- The user will be able to look up herbs based on a specific health concerns.
+- Each plant profile will contain an image, name, and short description.
+- The user will be able to save any plant profile to their "favorites" tab for easy access.
 
-### `npm run build`
+## Implementation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Horizon UI for modal
+- Grommet for pagination
+- Puppeteer for API access
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### APIs
 
-### `npm run eject`
+https://www.mskcc.org/cancer-care/diagnosis-treatment/symptom-management/integrative-medicine/herbs/search
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Other resources:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- https://www.mskcc.org/cancer-care/diagnosis-treatment/symptom-management/integrative-medicine/herbs/search
+- https://www.hopkinsmedicine.org/health/wellness-and-prevention/herbal-medicine
+- https://www.urmc.rochester.edu/encyclopedia/content.aspx?contenttypeid=1&contentid=1169
+- https://www.medicalnewstoday.com/articles/herbal-medicine#supplements
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+API response example for each plant:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+[
+{
+id: 1,
+image:
+"https://www.mskcc.org/sites/default/files/styles/large/public/node/3226/images/Chamomile011_3x2.jpg",
+name: "chamomille",
+description:
+"Chamomile is an herb used in traditional medicine for its relaxing and calming effects. It’s mostly taken as herbal tea. You can also take chamomile capsules or tablets.",
+uses: [
+"Lower stress",
+"Treat insomnia (trouble falling asleep, staying asleep, or waking up too early)",
+"Lower anxiety (strong feelings of worry or fear)",
+"Treat depression",
+"Treat mouth sores from cancer treatment",
+"Treat upset stomach and diarrhea (loose or watery bowel movements)",
+],
+},
+];
 
-## Learn More
+### Sitemap
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Homepage
+- Favorites
+- Settings
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[View map](https://octopus.do/uhzfhykxae8)
 
-### Code Splitting
+### Mockups
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[View Figma prototype](https://www.figma.com/file/laJkSMbICbdav1DjSCWt72/capstone-project?type=design&node-id=13%3A2&mode=design&t=BbxDlKGm9fTbSkdh-1)
 
-### Analyzing the Bundle Size
+### Data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+| userLogin             |
+| --------------------- |
+| userId (pk)           |
+| favoritePlantsId (fk) |
+| email                 |
 
-### Making a Progressive Web App
+| favoritePlants        |
+| --------------------- |
+| favoritePlantsId (pk) |
+| userId (fk)           |
+| plantId (fk)          |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+| plant                 |
+| --------------------- |
+| plantId (pk)          |
+| favoritePlantsId (fk) |
+| name                  |
+| benefits              |
+| description           |
+| image                 |
 
-### Advanced Configuration
+### Endpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
 
-### Deployment
+- POST /register
+- GET /homepage
+- POST /favorites
+- DELETE /favorites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Auth
 
-### `npm run build` fails to minify
+Users will register their email address before using the app, so their Favorites information will be associated to that specific account.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Roadmap
+
+Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build.
+
+Week 9:
+
+- Create responsive prototype
+- Research health topics and build health categories for app accordingly
+- Set up mockup data
+
+Week 10:
+
+- Set up front and back ends (node, axios, express)
+- Style responsive front-end
+- Research and try pagination
+- Develop & test front-end logic with mockup data
+
+Week 11:
+
+- Develop back-end logic
+- Test Puppeteer and endpoint requests
+- Connect front and backend
+
+Week 12:
+
+- Work on authentication
+- Test app and look for bugs
+
+## Nice-to-haves
+
+- Add more health concern categories and expand database
+- Provide options of products like teas of the herb the user is interested in using
