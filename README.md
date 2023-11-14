@@ -64,7 +64,7 @@ uses: [
 - Favorites
 - Settings
 
-[View map](https://octopus.do/uhzfhykxae8)
+[View sitemap](https://octopus.do/uhzfhykxae8)
 
 ### Mockups
 
