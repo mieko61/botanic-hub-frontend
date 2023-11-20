@@ -6,10 +6,23 @@
 .header {
   padding: 2rem;
   position: fixed;
-
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+
+  &__logo {
+    height: 1.25rem;
+  }
 
   &__nav {
     display: flex;
+    width: 20%;
+    color: $peach;
   }
+}
+
+.header-icon {
+  padding-left: 0.5rem;
+  fill: $peach;
 }
