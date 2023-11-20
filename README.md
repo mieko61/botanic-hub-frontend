@@ -72,11 +72,11 @@ uses: [
 
 ### Data
 
-| userLogin             |
-| --------------------- |
-| userId (pk)           |
-| favoritePlantsId (fk) |
-| email                 |
+| user        |
+| ----------- |
+| userId (pk) |
+| name        |
+| email       |
 
 | favoritePlants        |
 | --------------------- |
@@ -84,14 +84,23 @@ uses: [
 | userId (fk)           |
 | plantId (fk)          |
 
-| plant                 |
-| --------------------- |
-| plantId (pk)          |
-| favoritePlantsId (fk) |
-| name                  |
-| benefits              |
-| description           |
-| image                 |
+| plant        |
+| ------------ |
+| plantId (pk) |
+| name         |
+| description  |
+| image        |
+
+| plantUses        |
+| ---------------- |
+| plantUsesId (pk) |
+| plantId (fk)     |
+| usesId (fk)      |
+
+| uses        |
+| ----------- |
+| usesId (pk) |
+| uses        |
 
 ### Endpoints
 
