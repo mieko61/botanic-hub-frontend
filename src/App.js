@@ -4,8 +4,11 @@ import {
   Routes,
   Route,
   Navigate,
+  useNavigate,
+  Link,
 } from "react-router-dom";
 import Header from "./components/Header/Header";
+import Categories from "./pages/Categories/Categories";
 
 function App() {
   return (
@@ -13,7 +16,8 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Navigate to="/getstarted" />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+          <Route path="/dashboard/categories" element={<Categories />} />
         </Routes>
       </Router>
     </div>
