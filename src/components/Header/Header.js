@@ -2,9 +2,12 @@ import "./Header.scss";
 
 const Header = () => {
   return (
-    <header>
-      <span className="logo">BOTANIC HUB</span>
-      <div></div>
+    <header className="header">
+      <h1 className="header__logo">BOTANIC HUB</h1>
+      <div className="header__nav">
+        <img src="/" alt="favorites icon" />
+        <img src="/" alt="settings icon" />
+      </div>
     </header>
   );
 };

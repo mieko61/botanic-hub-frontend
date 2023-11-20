@@ -1,1 +1,15 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
 
+.header {
+  padding: 2rem;
+  position: fixed;
+
+  display: flex;
+
+  &__nav {
+    display: flex;
+  }
+}
