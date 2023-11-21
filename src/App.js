@@ -10,6 +10,7 @@ import {
 import Header from "./components/Header/Header";
 import Categories from "./pages/CategoriesPage/CategoriesPage";
 import HealthUse from "./pages/HealthUsePage/HealthUsePage";
+import Login from "./pages/LoginPage/LoginPage";
 import { useState } from "react";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Router>
         <Header />
         <Routes>
+          <Route path="/login" element={<Login />} />
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
           <Route
             path="/categories"
