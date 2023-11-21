@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 let HealthUse = () => {
   const [allHealthUses, setAllHealthUses] = useState();
-  const navigate = useNavigate;
+  //   const navigate = useNavigate;
   const [searchParams] = useSearchParams();
 
   useEffect(() => {

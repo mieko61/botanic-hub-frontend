@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-let Categories = () => {
+let Categories = ({ setSelectedCategory }) => {
   const [allCategories, setAllCategories] = useState();
 
   const navigate = useNavigate;

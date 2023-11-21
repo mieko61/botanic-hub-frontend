@@ -10,15 +10,21 @@ import {
 import Header from "./components/Header/Header";
 import Categories from "./pages/CategoriesPage/CategoriesPage";
 import HealthUse from "./pages/HealthUsePage/HealthUsePage";
+import { useState } from "react";
 
 function App() {
+  const [selectedCategory, setSelectedCategory] = useState("");
+
   return (
     <div className="App">
       <Router>
         <Header />
         <Routes>
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-          <Route path="/categories" element={<Categories />} />
+          <Route
+            path="/categories"
+            element={<Categories setSelectedCategory={setSelectedCategory} />}
+          />
           <Route path="/healthUse" element={<HealthUse />} />
           {/* <Route
             path="/healthUse?category=:categoryId"
