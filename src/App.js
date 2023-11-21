@@ -8,7 +8,8 @@ import {
   Link,
 } from "react-router-dom";
 import Header from "./components/Header/Header";
-import Categories from "./pages/Categories/Categories";
+import Categories from "./pages/CategoriesPage/CategoriesPage";
+import HealthUse from "./pages/HealthUsePage/HealthUsePage";
 
 function App() {
   return (
@@ -17,7 +18,12 @@ function App() {
         <Header />
         <Routes>
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-          <Route path="/dashboard/categories" element={<Categories />} />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/healthUse" element={<HealthUse />} />
+          {/* <Route
+            path="/healthUse?category=:categoryId"
+            element={<HealthUse />}
+          /> */}
         </Routes>
       </Router>
     </div>
