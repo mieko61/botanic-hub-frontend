@@ -12,13 +12,13 @@ let Login = () => {
     event.preventDefault();
     const apiBody = process.env.REACT_APP_BASE_URL;
 
-    console.log(event.target.password.value);
-
     try {
-      const response = await axios.post(`${apiBody}/login`, {
-        username: event.target.email.value,
+      const response = await axios.post(`${apiBody}/auth/login`, {
+        email: event.target.email.value,
         password: event.target.password.value,
       });
+      console.log(response.data);
+
       sessionStorage.setItem("token", response.data.token);
 
       navigate("/");

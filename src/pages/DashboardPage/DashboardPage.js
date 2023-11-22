@@ -19,7 +19,7 @@ let Dashboard = () => {
     const token = sessionStorage.getItem("token");
 
     try {
-      const response = await axios.get(`${apiBody}/dashboard`, {
+      const response = await axios.get(`${apiBody}/profile`, {
         headers: {
           Authorization: "Bearer " + token,
         },
