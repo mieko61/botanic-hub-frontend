@@ -1,28 +1,29 @@
-import "./HealthUsePage.scss";
-import HealthUseCard from "../../components/HealthUseCard/HealthUseCard";
+import "./ResultsPage.scss";
+import ResultCard from "../../components/ResultCard/ResultCard";
 import arrowIcon from "../../assets/images/icons/back.svg";
 import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-let HealthUse = () => {
-  const [allHealthUses, setAllHealthUses] = useState();
+let Results = () => {
+  const [allResults, setAllResults] = useState();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const healthUse = searchParams.get("healthUse");
   const category = searchParams.get("category");
 
   useEffect(() => {
     const apiBody = process.env.REACT_APP_BASE_URL;
-    const renderHealthUses = async () => {
+    const renderResults = async () => {
       let response = await axios.get(
-        `${apiBody}/healthUse?category=${category}`
+        `${apiBody}/results?healthUse=${healthUse}&category=${category}`
       );
-      setAllHealthUses(response.data);
+      setAllResults(response.data);
     };
-    renderHealthUses();
+    renderResults();
   }, []);
 
-  if (!allHealthUses) return null;
+  if (!allResults) return null;
 
   return (
     <main className="categories">
@@ -33,19 +34,15 @@ let HealthUse = () => {
           className="page-header__arrow"
           onClick={() => navigate(-1)}
         />
-        <h2 className="page-header_title">Select a topic</h2>
+        <h2 className="page-header_title">Results</h2>
       </div>
-      {allHealthUses.map((healthUse) => {
+      {allResults.map((plant) => {
         return (
-          <HealthUseCard
-            key={healthUse.id}
-            healthUse={healthUse}
-            category={category}
-          />
+          <ResultCard key={plant.id} plant={plant} healthUse={healthUse} />
         );
       })}
     </main>
   );
 };
 
-export default HealthUse;
+export default Results;
