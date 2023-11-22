@@ -14,6 +14,7 @@ import Categories from "./pages/CategoriesPage/CategoriesPage";
 import HealthUse from "./pages/HealthUsePage/HealthUsePage";
 import Results from "./pages/ResultsPage/ResultsPage";
 import DetailsPage from "./pages/DetailsPage/DetailsPage";
+import Favorites from "./pages/FavoritesPage/FavoritesPage";
 
 import { useState } from "react";
 
@@ -27,6 +28,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Dashboard />} />
+          <Route path="/favorites" element={<Favorites />} />
           <Route
             path="/categories"
             element={<Categories setSelectedCategory={setSelectedCategory} />}

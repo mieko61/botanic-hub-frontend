@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { render } from "@testing-library/react";
+import FavoritesModal from "../../components/FavoritesModal/FavoritesModal";
 
 let Details = () => {
   const [plantDetails, setPlantDetails] = useState();
@@ -29,7 +30,7 @@ let Details = () => {
   return (
     <main className="categories">
       <div>
-        <button>Save to favorites</button>
+        <FavoritesModal plantDetails={plantDetails} />{" "}
         <button>Back to dashboard</button>
       </div>
       <div>
