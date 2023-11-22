@@ -19,14 +19,16 @@ let Dashboard = () => {
     const token = sessionStorage.getItem("token");
 
     try {
-      const response = await axios.get(`${apiBody}/dashboard`, {
+      const response = await axios.get(`${apiBody}/profile`, {
         headers: {
-          Authorization: "Bearer" + token,
+          Authorization: "Bearer " + token,
         },
       });
       setData(response.data);
+      console.log(response);
     } catch (error) {
       setFailedAuth(true);
+      console.log(error.message);
     }
     setIsLoading(false);
   };
@@ -43,10 +45,16 @@ let Dashboard = () => {
     return <main>Loading...</main>;
   }
 
+  const handleGetStarted = () => {
+    console.log("hello");
+    navigate("/categories");
+  };
+
   return (
     <main>
       <h1>Dashboard</h1>
       <p>Welcome back. {data.name}</p>
+      <button onClick={handleGetStarted}>Get Started</button>
     </main>
   );
 };

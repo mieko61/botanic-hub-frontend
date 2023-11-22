@@ -16,6 +16,7 @@ html {
 
 body {
   font-family: "DMSans", Arial, Helvetica, sans-serif;
+  color: $black;
 }
 
 h1 {
@@ -24,11 +25,12 @@ h1 {
 
 h2 {
   font-size: 18px;
+  font-weight: 700;
 }
 
 h3 {
   font-family: "Gloock";
-  font-size: 24px;
+  font-size: 20px;
 }
 
 p {
