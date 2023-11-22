@@ -8,10 +8,12 @@ import {
   Link,
 } from "react-router-dom";
 import Header from "./components/Header/Header";
-import Categories from "./pages/CategoriesPage/CategoriesPage";
-import HealthUse from "./pages/HealthUsePage/HealthUsePage";
 import Login from "./pages/LoginPage/LoginPage";
 import Dashboard from "./pages/DashboardPage/DashboardPage";
+import Categories from "./pages/CategoriesPage/CategoriesPage";
+import HealthUse from "./pages/HealthUsePage/HealthUsePage";
+import Results from "./pages/ResultsPage/ResultsPage";
+
 import { useState } from "react";
 
 function App() {
@@ -29,6 +31,7 @@ function App() {
             element={<Categories setSelectedCategory={setSelectedCategory} />}
           />
           <Route path="/healthUse" element={<HealthUse />} />
+          <Route path="/results" element={<Results />} />
         </Routes>
       </Router>
     </div>

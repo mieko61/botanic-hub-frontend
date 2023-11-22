@@ -5,10 +5,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-let Categories = ({ setSelectedCategory }) => {
+let Categories = () => {
   const [allCategories, setAllCategories] = useState();
 
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const apiBody = process.env.REACT_APP_BASE_URL;
@@ -25,7 +25,12 @@ let Categories = ({ setSelectedCategory }) => {
   return (
     <main className="categories">
       <div className="page-header">
-        <img src={arrowIcon} alt="back arrow" className="page-header__arrow" />
+        <img
+          src={arrowIcon}
+          alt="back arrow"
+          className="page-header__arrow"
+          onClick={() => navigate(-1)}
+        />
         <h2 className="page-header_title">Select a category</h2>
       </div>
       {allCategories.map((category) => {
