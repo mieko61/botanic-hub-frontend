@@ -7,7 +7,7 @@ let Dashboard = () => {
   const [failedAuth, setFailedAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const logout = () => {
     sessionStorage.removeItem("token");
@@ -45,16 +45,11 @@ let Dashboard = () => {
     return <main>Loading...</main>;
   }
 
-  const handleGetStarted = () => {
-    console.log("hello");
-    navigate("/categories");
-  };
-
   return (
-    <main>
+    <main className="categories">
       <h1>Dashboard</h1>
-      <p>Welcome back. {data.name}</p>
-      <button onClick={handleGetStarted}>Get Started</button>
+      <p>Welcome back, {data.name}</p>
+      <button onClick={() => navigate("/categories")}>Get started</button>
     </main>
   );
 };
