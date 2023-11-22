@@ -11,8 +11,6 @@ let HealthUse = () => {
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category");
 
-  console.log(category);
-
   useEffect(() => {
     const apiBody = process.env.REACT_APP_BASE_URL;
     const renderHealthUses = async () => {

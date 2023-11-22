@@ -1,13 +1,19 @@
 import "./ResultCard.scss";
+import { useNavigate } from "react-router-dom";
 
-let ResultCard = ({ results }) => {
+let ResultCard = ({ plant, healthUse }) => {
+  const navigate = useNavigate();
+  const handleRenderDetails = () => {
+    navigate(`/results/plant?plant=${plant.id}&healthUse=${healthUse}`);
+  };
+
   return (
-    <div className="category-card">
-      <h3 className="category-card__title">{results.name}</h3>
+    <div className="category-card" onClick={handleRenderDetails}>
+      <h3 className="category-card__title">{plant.name}</h3>
       <img
         alt="category image"
         className="result-card__image"
-        src={results.image}
+        src={plant.image}
       />
     </div>
   );

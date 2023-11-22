@@ -13,6 +13,7 @@ import Dashboard from "./pages/DashboardPage/DashboardPage";
 import Categories from "./pages/CategoriesPage/CategoriesPage";
 import HealthUse from "./pages/HealthUsePage/HealthUsePage";
 import Results from "./pages/ResultsPage/ResultsPage";
+import DetailsPage from "./pages/DetailsPage/DetailsPage";
 
 import { useState } from "react";
 
@@ -32,6 +33,7 @@ function App() {
           />
           <Route path="/healthUse" element={<HealthUse />} />
           <Route path="/results" element={<Results />} />
+          <Route path="/results/plant" element={<DetailsPage />} />
         </Routes>
       </Router>
     </div>
