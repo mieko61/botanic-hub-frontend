@@ -45,10 +45,16 @@ let Dashboard = () => {
     return <main>Loading...</main>;
   }
 
+  const handleGetStarted = () => {
+    console.log("hello");
+    navigate("/categories");
+  };
+
   return (
     <main>
       <h1>Dashboard</h1>
       <p>Welcome back. {data.name}</p>
+      <button onClick={handleGetStarted}>Get Started</button>
     </main>
   );
 };
