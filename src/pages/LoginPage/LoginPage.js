@@ -13,8 +13,8 @@ let Login = () => {
     const apiBody = process.env.REACT_APP_BASE_URL;
     try {
       const response = await axios.post(`${apiBody}/auth/login`, {
-        // name: event.target.name.value,
         email: event.target.email.value,
+        password: event.target.value,
       });
       sessionStorage.setItem("token", response.data.token);
       navigate("/");
@@ -28,6 +28,7 @@ let Login = () => {
       <form onSubmit={handleSubmit}>
         <h1 className="login__title">Log in</h1>
         <Input type="text" name="email" label="Email" />
+        <Input type="password" name="password" label="Password" />
         <button>Log in</button>
         {error && <div>{error}</div>}
       </form>

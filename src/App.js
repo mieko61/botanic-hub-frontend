@@ -11,6 +11,7 @@ import Header from "./components/Header/Header";
 import Categories from "./pages/CategoriesPage/CategoriesPage";
 import HealthUse from "./pages/HealthUsePage/HealthUsePage";
 import Login from "./pages/LoginPage/LoginPage";
+import Dashboard from "./pages/DashboardPage/DashboardPage";
 import { useState } from "react";
 
 function App() {
@@ -22,16 +23,12 @@ function App() {
         <Header />
         <Routes>
           <Route path="/login" element={<Login />} />
-          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+          <Route path="/" element={<Dashboard />} />
           <Route
             path="/categories"
             element={<Categories setSelectedCategory={setSelectedCategory} />}
           />
           <Route path="/healthUse" element={<HealthUse />} />
-          {/* <Route
-            path="/healthUse?category=:categoryId"
-            element={<HealthUse />}
-          /> */}
         </Routes>
       </Router>
     </div>
