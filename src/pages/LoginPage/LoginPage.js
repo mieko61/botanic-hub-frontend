@@ -11,15 +11,20 @@ let Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const apiBody = process.env.REACT_APP_BASE_URL;
+
+    console.log(event.target.password.value);
+
     try {
-      const response = await axios.post(`${apiBody}/auth/login`, {
-        email: event.target.email.value,
-        password: event.target.value,
+      const response = await axios.post(`${apiBody}/login`, {
+        username: event.target.email.value,
+        password: event.target.password.value,
       });
       sessionStorage.setItem("token", response.data.token);
+
       navigate("/");
     } catch (error) {
-      setError(error.response.data);
+      setError(error.message);
+      console.log(error);
     }
   };
 

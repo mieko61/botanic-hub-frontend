@@ -21,12 +21,14 @@ let Dashboard = () => {
     try {
       const response = await axios.get(`${apiBody}/dashboard`, {
         headers: {
-          Authorization: "Bearer" + token,
+          Authorization: "Bearer " + token,
         },
       });
       setData(response.data);
+      console.log(response);
     } catch (error) {
       setFailedAuth(true);
+      console.log(error.message);
     }
     setIsLoading(false);
   };
