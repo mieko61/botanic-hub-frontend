@@ -13,8 +13,11 @@ let Details = () => {
   const plant = searchParams.get("plant");
   const healthUse = searchParams.get("healthUse");
   //   const category = searchParams.get("category");
+  let [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    //moved to parent... change name ... is successmodal open
+
     const apiBody = process.env.REACT_APP_BASE_URL;
     const renderplantDetails = async () => {
       let response = await axios.get(

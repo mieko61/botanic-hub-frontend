@@ -2,7 +2,10 @@ import "./FavoritesModal";
 import Modal from "react-modal";
 import closeIcon from "../../assets/images/icons/x-circle.svg";
 import { useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import axios from "axios";
 
+//pass "is successmodal open" and function
 const customStyles = {
   content: {
     top: "26%",
@@ -14,9 +17,8 @@ const customStyles = {
   },
 };
 
-let FavoritesModal = ({ addPlant, plantDetails }) => {
+let FavoritesModal = ({ plantDetails }) => {
   let subtitle;
-  let [isOpen, setIsOpen] = useState(false);
 
   function openModal() {
     setIsOpen(true);
@@ -29,6 +31,28 @@ let FavoritesModal = ({ addPlant, plantDetails }) => {
   function closeModal() {
     setIsOpen(false);
   }
+
+  const apiBody = process.env.REACT_APP_BASE_URL;
+  const [searchParams] = useSearchParams();
+  const user = searchParams.get("user");
+  const [isOpen, setIsOpen] = useState();
+  // const [updatedFavorites, setUpdatedFavorites] = useState();
+
+  let addPlant = async () => {
+    try {
+      let response = await axios.post(`${apiBody}/favorites?user=${user}`, {
+        plant_id: response.data.id,
+      });
+      console.log(response.data);
+
+      console.log("Plant was successfully added", response.data);
+    } catch (error) {
+      console.error("Error adding plant", error);
+    }
+  };
+
+  // move addPlant to Details page  and Button
+  //on click, run addPlant, if axios all succeds, set new state on details page called favoritesAdded
 
   return (
     <div>
@@ -47,7 +71,7 @@ let FavoritesModal = ({ addPlant, plantDetails }) => {
         <img
           src={closeIcon}
           onClick={() => {
-            addPlant(plantDetails.id);
+            addPlant(plantDetails);
             setIsOpen(false);
           }}
         />

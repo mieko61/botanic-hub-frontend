@@ -33,6 +33,7 @@ let Dashboard = () => {
     setIsLoading(false);
   };
 
+  //copy paste to all pages that require authentication
   useEffect(() => {
     login();
   }, []);
