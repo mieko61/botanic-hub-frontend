@@ -18,11 +18,10 @@
   &__nav {
     display: flex;
     width: 20%;
-    color: $peach;
-  }
-}
 
-.header-icon {
-  padding-left: 0.5rem;
-  fill: $peach;
+    & a {
+      padding-left: 0.5rem;
+      height: 1.25rem;
+    }
+  }
 }

@@ -1,15 +1,48 @@
 import "./Header.scss";
 import logo from "../../assets/images/logo.svg";
-import heartIcon from "../../assets/images/icons/heart.svg";
-import settingsIcon from "../../assets/images/icons/settings.svg";
+import HeartIcon from "../HeartIcon/HeartIcon";
+import SettingsIcon from "../SettingsIcon/SettingsIcon";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handlePressIn = () => {
+    setIsHovered(true);
+  };
+
+  const handlePressOut = () => {
+    setIsHovered(false);
+  };
+
+  const svgColor = isHovered ? "#d64550" : "#ea9e8d";
+
   return (
     <header className="header">
-      <img src={logo} alt="logo" className="header__logo" />
+      <Link to="/">
+        <img src={logo} alt="logo" className="header__logo" />
+      </Link>
       <div className="header__nav">
-        <img src={heartIcon} alt="favorites icon" className="header-icon" />
-        <img src={settingsIcon} alt="settings icon" className="header-icon" />
+        <NavLink to="/favorites">
+          <HeartIcon
+            alt="favorites icon"
+            className="header-icon"
+            fill={svgColor}
+            stroke={svgColor}
+          />
+        </NavLink>
+        <NavLink
+          to="/settings"
+          // className={({ isActive }) => (isActive ? "active" : "inactive")}
+        >
+          <SettingsIcon
+            alt="settings icon"
+            className="header-icon"
+            fill={svgColor}
+            stroke={svgColor}
+          />
+        </NavLink>
       </div>
     </header>
   );
