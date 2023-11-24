@@ -29,7 +29,7 @@ let Login = () => {
   };
 
   return (
-    <main className="login-container">
+    <main className="main">
       <form onSubmit={handleSubmit}>
         <h1 className="login__title">Log in</h1>
         <Input type="text" name="email" label="Email" />

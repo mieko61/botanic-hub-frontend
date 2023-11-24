@@ -47,10 +47,19 @@ let Dashboard = () => {
   }
 
   return (
-    <main className="categories">
-      <h1>Dashboard</h1>
-      <p>Welcome back, {data.name}</p>
-      <button onClick={() => navigate("/categories")}>Get started</button>
+    <main className="main">
+      <h3 className="dashboard__header">Hello, {data.name}</h3>
+
+      <h2 className="dashboard__body">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </h2>
+      <button
+        onClick={() => navigate("/categories")}
+        className="button button--dashboard"
+      >
+        Get started
+      </button>
     </main>
   );
 };

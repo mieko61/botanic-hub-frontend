@@ -25,7 +25,7 @@ let HealthUse = () => {
   if (!allHealthUses) return null;
 
   return (
-    <main className="categories">
+    <main className="main">
       <div className="page-header">
         <img
           src={arrowIcon}

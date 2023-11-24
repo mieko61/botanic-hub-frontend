@@ -36,3 +36,23 @@ h3 {
 p {
   font-size: 12px;
 }
+
+.main {
+  padding: 10rem 3rem 3rem;
+}
+
+.button {
+  height: 2.25rem;
+  border-radius: 20px;
+  padding: 0 1rem;
+  background-color: $peach;
+  color: $yellow;
+  font-size: 13px;
+  font-family: "DMSans";
+  font-weight: 700;
+
+  &:hover {
+    background-color: $red;
+    cursor: pointer;
+  }
+}

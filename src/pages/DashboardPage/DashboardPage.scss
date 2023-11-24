@@ -1,0 +1,24 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+.dashboard {
+  &__header {
+    text-align: left;
+    padding-bottom: 3rem;
+    letter-spacing: 0.16rem;
+  }
+
+  &__body {
+    text-align: left;
+    width: 60%;
+    line-height: 2rem;
+    padding-left: 1rem;
+  }
+}
+
+.button--dashboard {
+  position: absolute;
+  bottom: 5rem;
+}

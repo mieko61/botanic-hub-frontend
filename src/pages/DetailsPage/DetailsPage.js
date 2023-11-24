@@ -31,7 +31,7 @@ let Details = () => {
   if (!plantDetails) return null;
 
   return (
-    <main className="categories">
+    <main className="main">
       <div>
         <FavoritesModal plantDetails={plantDetails} />{" "}
         <button onClick={handleReturnHome}>Back to dashboard</button>

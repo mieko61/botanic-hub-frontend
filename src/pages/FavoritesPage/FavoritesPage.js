@@ -24,7 +24,7 @@ let FavoritesPage = () => {
   if (!favorites) return null;
 
   return (
-    <main className="categories">
+    <main className="main">
       <div className="page-header">
         <h2 className="page-header_title">Favorites</h2>
       </div>

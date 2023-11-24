@@ -3,10 +3,6 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/global" as *;
 
-.categories {
-  padding: 10rem 3rem 3rem;
-}
-
 .page-header {
   display: flex;
   justify-content: flex-start;
