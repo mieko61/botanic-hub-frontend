@@ -11,18 +11,18 @@ let Details = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const plant = searchParams.get("plant");
-  const healthUse = searchParams.get("healthUse");
-  //   const category = searchParams.get("category");
   let [isOpen, setIsOpen] = useState(false);
+
+  const handleReturnHome = () => {
+    navigate("/");
+  };
 
   useEffect(() => {
     //moved to parent... change name ... is successmodal open
 
     const apiBody = process.env.REACT_APP_BASE_URL;
     const renderplantDetails = async () => {
-      let response = await axios.get(
-        `${apiBody}/results/plant?plant=${plant}&healthUse=${healthUse}`
-      );
+      let response = await axios.get(`${apiBody}/plantdetails?plant=${plant}`);
       setPlantDetails(response.data);
     };
     renderplantDetails();
@@ -34,7 +34,7 @@ let Details = () => {
     <main className="categories">
       <div>
         <FavoritesModal plantDetails={plantDetails} />{" "}
-        <button>Back to dashboard</button>
+        <button onClick={handleReturnHome}>Back to dashboard</button>
       </div>
       <div>
         <img src={closeIcon} alt="close icon" onClick={() => navigate(-1)} />

@@ -1,10 +1,10 @@
 import "./ResultCard.scss";
 import { useNavigate } from "react-router-dom";
 
-let ResultCard = ({ plant, healthUse }) => {
+let ResultCard = ({ plant }) => {
   const navigate = useNavigate();
   const handleRenderDetails = () => {
-    navigate(`/results/plant?plant=${plant.id}&healthUse=${healthUse}`);
+    navigate(`/plantdetails?plant=${plant.id}`);
   };
 
   return (

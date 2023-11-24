@@ -1,19 +1,23 @@
 import "./FavoritesPage.scss";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import FavoritesCard from "../../components/FavoritesCard/FavoritesCard";
 
 let FavoritesPage = () => {
   const [favorites, setFavorites] = useState();
-  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const user = searchParams.get("user");
 
   useEffect(() => {
     const apiBody = process.env.REACT_APP_BASE_URL;
     const renderFavorites = async () => {
-      let response = await axios.get(`${apiBody}/favorites?user=${user}`);
+      let response = await axios.get(`${apiBody}/favorites?user=4`);
+
+      // let response = await axios.get(`${apiBody}/favorites?user=${user}`);
       setFavorites(response.data);
+      // console.log(user);
+      console.log(favorites);
     };
     renderFavorites();
   }, []);
@@ -24,15 +28,11 @@ let FavoritesPage = () => {
       <div className="page-header">
         <h2 className="page-header_title">Favorites</h2>
       </div>
-      {/* {allHealthUses.map((healthUse) => {
+      {favorites.map((favorite) => {
         return (
-          <HealthUseCard
-            key={healthUse.id}
-            healthUse={healthUse}
-            category={category}
-          />
+          <FavoritesCard key={favorite.id} favorite={favorite} user={user} />
         );
-      })} */}
+      })}
     </main>
   );
 };
