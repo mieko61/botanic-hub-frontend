@@ -11,9 +11,8 @@ let CategoryCard = ({ category }) => {
   };
   return (
     <div>
-      <div className="category-card" onClick={handleRenderHealthUse}>
-        <h3 className="category-card__title">{category.name}</h3>
-        <img src="/" alt="category image" className="category-card__image" />
+      <div className="card" onClick={handleRenderHealthUse}>
+        <h3 className="card__title">{category.name}</h3>
       </div>
     </div>
   );

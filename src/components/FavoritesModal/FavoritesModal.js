@@ -56,7 +56,9 @@ let FavoritesModal = ({ plantDetails }) => {
 
   return (
     <div>
-      <button onClick={openModal}>Save to favorites</button>
+      <button onClick={openModal} className="button">
+        Save to favorites
+      </button>
 
       <Modal
         isOpen={isOpen}

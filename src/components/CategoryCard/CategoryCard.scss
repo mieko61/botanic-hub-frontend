@@ -2,15 +2,3 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/global" as *;
-
-.category-card {
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-  padding: 1rem;
-  margin-top: 1rem;
-  background-color: $green;
-  border-radius: 0.5rem;
-  height: 8rem;
-  align-items: flex-end;
-}

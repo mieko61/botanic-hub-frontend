@@ -8,13 +8,9 @@ let ResultCard = ({ plant }) => {
   };
 
   return (
-    <div className="category-card" onClick={handleRenderDetails}>
-      <h3 className="category-card__title">{plant.name}</h3>
-      <img
-        alt="category image"
-        className="result-card__image"
-        src={plant.image}
-      />
+    <div className="card--result" onClick={handleRenderDetails}>
+      <h3 className="card__title">{plant.name}</h3>
+      <img alt="category image" className="card__image" src={plant.image} />
     </div>
   );
 };

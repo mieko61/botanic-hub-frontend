@@ -5,6 +5,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { render } from "@testing-library/react";
 import FavoritesModal from "../../components/FavoritesModal/FavoritesModal";
+import arrowIcon from "../../assets/images/icons/back.svg";
 
 let Details = () => {
   const [plantDetails, setPlantDetails] = useState();
@@ -31,20 +32,39 @@ let Details = () => {
   if (!plantDetails) return null;
 
   return (
-    <main className="main">
-      <div>
-        <FavoritesModal plantDetails={plantDetails} />{" "}
-        <button onClick={handleReturnHome}>Back to dashboard</button>
-      </div>
-      <div>
-        <img src={closeIcon} alt="close icon" onClick={() => navigate(-1)} />
+    <main className="plant-details">
+      <div className="plant-details_upper-container">
+        {/* <div className="close-button">
+          <img
+            className="close-button_icon"
+            src={closeIcon}
+            alt="close icon"
+            onClick={() => navigate(-1)}
+          />
+        </div> */}
+        <div className="page-header page-header--details">
+          <img
+            src={arrowIcon}
+            alt="back arrow"
+            className="page-header__arrow"
+            onClick={() => navigate(-1)}
+          />
+          <h2 className="page-header_title">Plant Details</h2>
+        </div>
+
         <img
           alt="category image"
-          className="result-card__image"
+          className="upper-container_image"
           src={plantDetails.image}
         />
-        <h2>{plantDetails.name}</h2>
-        <p>{plantDetails.description}</p>
+        <h3 className="upper-container_title">{plantDetails.name}</h3>
+        <p className="upper-container_body">{plantDetails.description}</p>
+      </div>
+      <div className="plant-details_lower-container">
+        <FavoritesModal plantDetails={plantDetails} />{" "}
+        <button className="button button--secondary" onClick={handleReturnHome}>
+          Back to dashboard
+        </button>
       </div>
     </main>
   );

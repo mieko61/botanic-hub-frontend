@@ -1,3 +1,26 @@
-.result-card__image {
-  height: 5rem;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+.card--result {
+  display: flex;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  border-radius: 0.5rem;
+  height: 8rem;
+  align-items: flex-end;
+  justify-content: space-between;
+  border: 3px solid $green;
+  background-color: white;
+
+  &:hover {
+    border-color: $active-green;
+  }
+}
+.card__image {
+  width: 5rem;
+  object-fit: fill;
+  border-radius: 0 0.5rem 0.5rem 0;
+  align-self: center;
 }

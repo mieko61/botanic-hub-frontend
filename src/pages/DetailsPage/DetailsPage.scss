@@ -1,0 +1,53 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+.page-header--details {
+  margin: 0 3rem 1rem;
+}
+
+.plant-details {
+  //   background-color: $green;
+  &_upper-container {
+    background-color: $yellow;
+    padding-top: 8rem;
+    border-radius: 20px;
+  }
+
+  &_lower-container {
+    padding: 3rem 1rem 3rem;
+    // display: flex;
+    // justify-content: space-around;
+    // flex-direction: column;
+    // background-color: $green;
+    // height: 20vh;
+  }
+}
+
+.upper-container {
+  &_image {
+    height: 12rem;
+    border-radius: 20px;
+    border: 3px solid $green;
+    padding: 2rem;
+    background-color: white;
+    margin-top: 1.5rem;
+  }
+
+  &_title {
+    padding: 1.5rem 0 0.5rem;
+  }
+
+  &_body {
+    padding: 0 2rem;
+    border-radius: 20px;
+    line-height: 1.25rem;
+  }
+}
+
+.close-button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem;
+}

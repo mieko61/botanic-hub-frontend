@@ -38,7 +38,7 @@ p {
 }
 
 .main {
-  padding: 10rem 3rem 3rem;
+  padding: 8rem 3rem 3rem;
 }
 
 .button {
@@ -50,9 +50,48 @@ p {
   font-size: 13px;
   font-family: "DMSans";
   font-weight: 700;
+  cursor: pointer;
 
   &:hover {
     background-color: $red;
-    cursor: pointer;
+  }
+
+  &--secondary {
+    margin-top: 1rem;
+    background-color: $yellow;
+    color: $peach;
+    border: 2px solid $peach;
+    &:hover {
+      background-color: $red;
+      color: $yellow;
+      border: none;
+    }
+  }
+}
+
+.page-header {
+  display: flex;
+  justify-content: flex-start;
+  // width: 100%;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid $black;
+
+  &__arrow {
+    margin-right: 2rem;
+  }
+}
+
+.card {
+  display: flex;
+  width: 100%;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  background-color: $green;
+  border-radius: 0.5rem;
+  height: 8rem;
+  align-items: flex-end;
+
+  &:hover {
+    background-color: $active-green;
   }
 }
