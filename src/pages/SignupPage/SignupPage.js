@@ -1,10 +1,10 @@
-import "./LoginPage.scss";
+import "./SignupPage.scss";
+import Input from "../../components/Input/Input";
 import axios from "axios";
 import { useState } from "react";
-import Input from "../../components/Input/Input";
 import { useNavigate, Link } from "react-router-dom";
 
-let Login = () => {
+let Signup = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -13,38 +13,37 @@ let Login = () => {
     const apiBody = process.env.REACT_APP_BASE_URL;
 
     try {
-      const response = await axios.post(`${apiBody}/auth/login`, {
+      await axios.post(`${apiBody}/auth/register`, {
+        name: event.target.name.value,
         email: event.target.email.value,
         password: event.target.password.value,
       });
-      console.log(response.data);
 
-      sessionStorage.setItem("token", response.data.token);
-
-      navigate("/");
+      navigate("/login");
     } catch (error) {
+      console.error(error);
       setError(error.message);
-      console.log(error);
     }
   };
 
   return (
     <main className="main">
-      <h1 className="login-title">Log in</h1>
+      <h1 className="login-title">Sign up</h1>
       <form className="login-form" onSubmit={handleSubmit}>
+        <Input type="text" name="name" label="Name" />
         <Input type="text" name="email" label="Email" />
         <Input type="password" name="password" label="Password" />
-        <button className="button button-login">Log in</button>
+        <button className="button button-login">Sign up</button>
         {error && <div>{error}</div>}
       </form>
       <p className="signup-text">
-        Need an account?{" "}
-        <Link to="/signup" className="signup-text_link">
-          Sign up
+        Already have an account?{" "}
+        <Link to="/login" className="signup-text_link">
+          Log in
         </Link>
       </p>
     </main>
   );
 };
 
-export default Login;
+export default Signup;

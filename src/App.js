@@ -16,6 +16,7 @@ import Results from "./pages/ResultsPage/ResultsPage";
 import DetailsPage from "./pages/DetailsPage/DetailsPage";
 import Favorites from "./pages/FavoritesPage/FavoritesPage";
 import FavoritesCard from "./components/FavoritesCard/FavoritesCard";
+import Signup from "./pages/SignupPage/SignupPage";
 
 import { useState } from "react";
 
@@ -27,6 +28,7 @@ function App() {
       <Router>
         <Header />
         <Routes>
+          <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Dashboard />} />
           <Route path="/favorites" element={<Favorites />} />

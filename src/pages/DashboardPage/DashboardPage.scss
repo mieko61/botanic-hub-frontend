@@ -8,6 +8,11 @@
     text-align: left;
     padding-bottom: 3rem;
     letter-spacing: 0.16rem;
+
+    &--fail {
+      padding: 8rem 2rem 2rem;
+      line-height: 2rem;
+    }
   }
 
   &__body {
