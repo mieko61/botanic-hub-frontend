@@ -67,9 +67,6 @@ let FavoritesModal = ({ plantDetails }) => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <h1 ref={(_subtitle) => (subtitle = _subtitle)}>
-          {plantDetails.name} has been added to favorites
-        </h1>
         <img
           src={closeIcon}
           onClick={() => {
@@ -77,6 +74,9 @@ let FavoritesModal = ({ plantDetails }) => {
             setIsOpen(false);
           }}
         />
+        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
+          {plantDetails.name} has been added to favorites
+        </h2>
       </Modal>
     </div>
   );

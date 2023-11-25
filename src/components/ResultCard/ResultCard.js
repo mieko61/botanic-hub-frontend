@@ -10,7 +10,7 @@ let ResultCard = ({ plant }) => {
   return (
     <div className="card--result" onClick={handleRenderDetails}>
       <h3 className="card__title">{plant.name}</h3>
-      <img alt="category image" className="card__image" src={plant.image} />
+      <img alt={plant.name} className="card__image" src={plant.image} />
     </div>
   );
 };
