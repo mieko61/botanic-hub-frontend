@@ -2,9 +2,11 @@ import "./Input.scss";
 
 let Input = ({ label, name, type }) => {
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
-      <input type={type} id={name} name={name}></input>
+    <div className="input">
+      <label className="input_label" htmlFor={name}>
+        {label}
+      </label>
+      <input className="input_box" type={type} id={name} name={name}></input>
     </div>
   );
 };

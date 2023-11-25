@@ -1,0 +1,23 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+.input {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.75rem;
+  & :focus {
+    outline: 2px solid $green;
+  }
+
+  &_label {
+    text-align: left;
+    padding-bottom: 0.25rem;
+  }
+
+  &_box {
+    height: 2rem;
+    border-radius: 0.25rem;
+  }
+}

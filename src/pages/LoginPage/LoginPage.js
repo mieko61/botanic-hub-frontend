@@ -30,15 +30,18 @@ let Login = () => {
 
   return (
     <main className="main">
-      <form onSubmit={handleSubmit}>
-        <h1 className="login__title">Log in</h1>
+      <h1 className="login-title">Log in</h1>
+      <form className="login-form" onSubmit={handleSubmit}>
         <Input type="text" name="email" label="Email" />
         <Input type="password" name="password" label="Password" />
-        <button>Log in</button>
+        <button className="button button-login">Log in</button>
         {error && <div>{error}</div>}
       </form>
-      <p>
-        Need an account? <Link to="/">Sign up</Link>
+      <p className="signup-text">
+        Need an account?{" "}
+        <Link to="/" className="signup-text_link">
+          Sign up
+        </Link>
       </p>
     </main>
   );

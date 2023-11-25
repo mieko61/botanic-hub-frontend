@@ -3,6 +3,31 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/global" as *;
 
-.login-container {
-  padding: 10rem 3rem 3rem;
+.login {
+  &-title {
+    text-align: left;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid $black;
+    width: fit-content;
+  }
+  &-form {
+    padding: 2rem 1rem 1rem;
+  }
+}
+
+.button-login {
+  margin-top: 1.5rem;
+}
+
+.signup-text_link {
+  text-decoration: none;
+  font-weight: 700;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
