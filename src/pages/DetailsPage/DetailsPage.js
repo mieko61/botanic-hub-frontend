@@ -12,15 +12,16 @@ let Details = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const plant = searchParams.get("plant");
+  const userId = searchParams.get("userId");
+
   let [isOpen, setIsOpen] = useState(false);
+  const [updatedFavorites, setUpdatedFavorites] = useState();
 
   const handleReturnHome = () => {
     navigate("/");
   };
 
   useEffect(() => {
-    //moved to parent... change name ... is successmodal open
-
     const apiBody = process.env.REACT_APP_BASE_URL;
     const renderplantDetails = async () => {
       let response = await axios.get(`${apiBody}/plantdetails?plant=${plant}`);
@@ -29,22 +30,32 @@ let Details = () => {
     renderplantDetails();
   }, []);
 
-  //comment out temporarily (saturday)
-  // let addPlant = async () => {
-  //   try {
-  //     let response = await axios.post(`${apiBody}/favorites?user=${user}`, {
-  //       plant_id: response.data.id,
-  //     });
-  //     console.log(response.data);
+  let addPlant = async () => {
+    const apiBody = process.env.REACT_APP_BASE_URL;
+    try {
+      await plantDetails;
 
-  //     console.log("Plant was successfully added", response.data);
-  //   } catch (error) {
-  //     console.error("Error adding plant", error);
-  //   }
-  // };
+      let response = await axios.post(`${apiBody}/favorites?user=${userId}`, {
+        plant_id: plantDetails.id,
+      });
+      // setUpdatedFavorites();
+
+      console.log("Plant was successfully added", response.data);
+    } catch (error) {
+      console.error("Error adding plant", error);
+    }
+  };
 
   if (!plantDetails) return null;
 
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  const handleButtonClick = () => {
+    openModal();
+    addPlant();
+  };
   return (
     <main className="plant-details">
       <div className="plant-details_upper-container">
@@ -75,7 +86,18 @@ let Details = () => {
         <p className="upper-container_body">{plantDetails.description}</p>
       </div>
       <div className="plant-details_lower-container">
-        <FavoritesModal plantDetails={plantDetails} />{" "}
+        <button onClick={handleButtonClick} className="button">
+          Save to favorites
+          <FavoritesModal
+            plantDetails={plantDetails}
+            setIsOpen={setIsOpen}
+            isOpen={isOpen}
+            // onClick={addPlant}
+            // closeModal={closeModal}
+            ariaHideApp={false}
+          />{" "}
+        </button>
+
         <button className="button button--secondary" onClick={handleReturnHome}>
           Back to dashboard
         </button>

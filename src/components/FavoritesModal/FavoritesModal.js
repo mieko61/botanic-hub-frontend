@@ -5,7 +5,6 @@ import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 
-//pass "is successmodal open" and function
 const customStyles = {
   content: {
     top: "26%",
@@ -17,12 +16,8 @@ const customStyles = {
   },
 };
 
-let FavoritesModal = ({ plantDetails }) => {
+function FavoritesModal({ plantDetails, addPlant, setIsOpen, isOpen }) {
   let subtitle;
-
-  function openModal() {
-    setIsOpen(true);
-  }
 
   function afterOpenModal() {
     subtitle.style.color = "#13182C";
@@ -32,54 +27,26 @@ let FavoritesModal = ({ plantDetails }) => {
     setIsOpen(false);
   }
 
-  const apiBody = process.env.REACT_APP_BASE_URL;
-  const [searchParams] = useSearchParams();
-  const user = searchParams.get("user");
-  const [isOpen, setIsOpen] = useState();
-  // const [updatedFavorites, setUpdatedFavorites] = useState();
-
-  // let addPlant = async () => {
-  //   try {
-  //     let response = await axios.post(`${apiBody}/favorites?user=${user}`, {
-  //       plant_id: response.data.id,
-  //     });
-  //     console.log(response.data);
-
-  //     console.log("Plant was successfully added", response.data);
-  //   } catch (error) {
-  //     console.error("Error adding plant", error);
-  //   }
-  // };
-
-  // move addPlant to Details page  and Button
-  //on click, run addPlant, if axios all succeds, set new state on details page called favoritesAdded
-
   return (
-    <div>
-      <button onClick={openModal} className="button">
-        Save to favorites
-      </button>
-
-      <Modal
-        isOpen={isOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <img
-          src={closeIcon}
-          onClick={() => {
-            addPlant(plantDetails);
-            setIsOpen(false);
-          }}
-        />
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
-          {plantDetails.name} has been added to favorites
-        </h2>
-      </Modal>
-    </div>
+    <Modal
+      isOpen={isOpen}
+      onAfterOpen={afterOpenModal}
+      onRequestClose={closeModal}
+      style={customStyles}
+      contentLabel="Example Modal"
+    >
+      <img
+        src={closeIcon}
+        onClick={() => {
+          // addPlant(plantDetails);
+          setIsOpen(false);
+        }}
+      />
+      <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
+        {plantDetails.name} has been added to favorites
+      </h2>
+    </Modal>
   );
-};
+}
 
 export default FavoritesModal;
