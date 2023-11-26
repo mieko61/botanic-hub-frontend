@@ -38,16 +38,18 @@ let Results = () => {
         />
         <h2 className="page-header_title">Results</h2>
       </div>
-      {allResults.map((plant) => {
-        return (
-          <ResultCard
-            key={plant.id}
-            plant={plant}
-            healthUse={healthUse}
-            userId={userId}
-          />
-        );
-      })}
+      <div className="page-results">
+        {allResults.map((plant) => {
+          return (
+            <ResultCard
+              key={plant.id}
+              plant={plant}
+              healthUse={healthUse}
+              userId={userId}
+            />
+          );
+        })}
+      </div>
     </main>
   );
 };

@@ -17,11 +17,9 @@
 
   &_lower-container {
     padding: 3rem 1rem 3rem;
-    // display: flex;
-    // justify-content: space-around;
-    // flex-direction: column;
-    // background-color: $green;
-    // height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 

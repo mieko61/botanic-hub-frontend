@@ -28,11 +28,13 @@ let FavoritesPage = () => {
       <div className="page-header">
         <h2 className="page-header_title">Favorites</h2>
       </div>
-      {favorites.map((favorite) => {
-        return (
-          <FavoritesCard key={favorite.id} favorite={favorite} user={user} />
-        );
-      })}
+      <div className="page-results">
+        {favorites.map((favorite) => {
+          return (
+            <FavoritesCard key={favorite.id} favorite={favorite} user={user} />
+          );
+        })}
+      </div>
     </main>
   );
 };

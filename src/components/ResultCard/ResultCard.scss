@@ -3,24 +3,27 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/global" as *;
 
-.card--result {
+.result-card {
   display: flex;
-  padding: 1.5rem;
+  flex-direction: column;
+  padding: 1rem;
   margin-top: 1.5rem;
   border-radius: 0.5rem;
   height: 8rem;
-  align-items: flex-end;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: space-around;
   border: 3px solid $green;
   background-color: white;
+  width: 45%;
 
   &:hover {
     border-color: $active-green;
   }
-}
-.card__image {
-  width: 5rem;
-  object-fit: fill;
-  border-radius: 0 0.5rem 0.5rem 0;
-  align-self: center;
+
+  &__image {
+    height: 3rem;
+    object-fit: fill;
+    border-radius: 0 0.5rem 0.5rem 0;
+    align-self: center;
+  }
 }

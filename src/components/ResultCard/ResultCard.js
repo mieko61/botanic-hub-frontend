@@ -11,9 +11,9 @@ let ResultCard = ({ plant }) => {
   };
 
   return (
-    <div className="card--result" onClick={handleRenderDetails}>
-      <h3 className="card__title">{plant.name}</h3>
-      <img alt={plant.name} className="card__image" src={plant.image} />
+    <div className="result-card" onClick={handleRenderDetails}>
+      <h4 className="result-card__title">{plant.name}</h4>
+      <img alt={plant.name} className="result-card__image" src={plant.image} />
     </div>
   );
 };
