@@ -9,10 +9,6 @@ let Dashboard = () => {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    navigate("/login");
-  };
-
   const logout = () => {
     sessionStorage.removeItem("token");
     navigate("/login");
@@ -42,6 +38,14 @@ let Dashboard = () => {
     login();
   }, []);
 
+  const handleLogin = () => {
+    navigate("/login");
+  };
+
+  // const handleGetStarted = () => {
+  //   navigate(`/categories?userId=${data.id}`);
+  // };
+
   if (failedAuth) {
     return (
       <main className="main">
@@ -51,9 +55,6 @@ let Dashboard = () => {
         <button className="button" onClick={handleLogin}>
           Log in
         </button>
-        {/* <Link to="/login" className="signup-text_link">
-          Log in
-        </Link> */}
       </main>
     );
   }

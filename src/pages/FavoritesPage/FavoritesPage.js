@@ -17,7 +17,7 @@ let FavoritesPage = () => {
       // let response = await axios.get(`${apiBody}/favorites?user=${user}`);
       setFavorites(response.data);
       // console.log(user);
-      console.log(favorites);
+      console.log(response.data);
     };
     renderFavorites();
   }, []);
