@@ -38,18 +38,18 @@ let FavoritesModal = ({ plantDetails }) => {
   const [isOpen, setIsOpen] = useState();
   // const [updatedFavorites, setUpdatedFavorites] = useState();
 
-  let addPlant = async () => {
-    try {
-      let response = await axios.post(`${apiBody}/favorites?user=${user}`, {
-        plant_id: response.data.id,
-      });
-      console.log(response.data);
+  // let addPlant = async () => {
+  //   try {
+  //     let response = await axios.post(`${apiBody}/favorites?user=${user}`, {
+  //       plant_id: response.data.id,
+  //     });
+  //     console.log(response.data);
 
-      console.log("Plant was successfully added", response.data);
-    } catch (error) {
-      console.error("Error adding plant", error);
-    }
-  };
+  //     console.log("Plant was successfully added", response.data);
+  //   } catch (error) {
+  //     console.error("Error adding plant", error);
+  //   }
+  // };
 
   // move addPlant to Details page  and Button
   //on click, run addPlant, if axios all succeds, set new state on details page called favoritesAdded

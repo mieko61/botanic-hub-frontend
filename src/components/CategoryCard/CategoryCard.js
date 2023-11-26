@@ -3,11 +3,10 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-let CategoryCard = ({ category }) => {
+let CategoryCard = ({ category, userId }) => {
   const navigate = useNavigate();
-
   const handleRenderHealthUse = () => {
-    navigate(`/healthUse?category=${category.id}`);
+    navigate(`/healthUse?category=${category.id}&userId=${userId}`);
   };
   return (
     <div>

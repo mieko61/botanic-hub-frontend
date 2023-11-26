@@ -29,6 +29,20 @@ let Details = () => {
     renderplantDetails();
   }, []);
 
+  //comment out temporarily (saturday)
+  // let addPlant = async () => {
+  //   try {
+  //     let response = await axios.post(`${apiBody}/favorites?user=${user}`, {
+  //       plant_id: response.data.id,
+  //     });
+  //     console.log(response.data);
+
+  //     console.log("Plant was successfully added", response.data);
+  //   } catch (error) {
+  //     console.error("Error adding plant", error);
+  //   }
+  // };
+
   if (!plantDetails) return null;
 
   return (

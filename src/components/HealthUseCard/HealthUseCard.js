@@ -3,11 +3,14 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-let HealthUseCard = ({ healthUse, category }) => {
+let HealthUseCard = ({ healthUse, category, userId }) => {
   const navigate = useNavigate();
+  console.log(userId);
 
   const handleRenderResults = () => {
-    navigate(`/results?healthUse=${healthUse.id}&category=${category.id}`);
+    navigate(
+      `/results?healthUse=${healthUse.id}&category=${category.id}&userId=${userId}`
+    );
   };
 
   return (

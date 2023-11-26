@@ -2,20 +2,22 @@ import "./CategoriesPage.scss";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import arrowIcon from "../../assets/images/icons/back.svg";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 let Categories = () => {
   const [allCategories, setAllCategories] = useState();
-
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const userId = searchParams.get("userId");
+
+  console.log(userId);
 
   useEffect(() => {
     const apiBody = process.env.REACT_APP_BASE_URL;
     const renderCategories = async () => {
       let response = await axios.get(`${apiBody}/categories`);
       setAllCategories(response.data);
-      console.log(response.data);
     };
     renderCategories();
   }, []);
@@ -34,7 +36,9 @@ let Categories = () => {
         <h2 className="page-header_title">Select a category</h2>
       </div>
       {allCategories.map((category) => {
-        return <CategoryCard key={category.id} category={category} />;
+        return (
+          <CategoryCard key={category.id} category={category} userId={userId} />
+        );
       })}
     </main>
   );

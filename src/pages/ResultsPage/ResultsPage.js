@@ -11,6 +11,7 @@ let Results = () => {
   const [searchParams] = useSearchParams();
   const healthUse = searchParams.get("healthUse");
   const category = searchParams.get("category");
+  const userId = searchParams.get("userId");
 
   useEffect(() => {
     const apiBody = process.env.REACT_APP_BASE_URL;
@@ -39,7 +40,12 @@ let Results = () => {
       </div>
       {allResults.map((plant) => {
         return (
-          <ResultCard key={plant.id} plant={plant} healthUse={healthUse} />
+          <ResultCard
+            key={plant.id}
+            plant={plant}
+            healthUse={healthUse}
+            userId={userId}
+          />
         );
       })}
     </main>

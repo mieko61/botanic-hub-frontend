@@ -1,10 +1,13 @@
 import "./ResultCard.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 let ResultCard = ({ plant }) => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const userId = searchParams.get("userId");
+
   const handleRenderDetails = () => {
-    navigate(`/plantdetails?plant=${plant.id}`);
+    navigate(`/plantdetails?plant=${plant.id}&userId=${userId}`);
   };
 
   return (

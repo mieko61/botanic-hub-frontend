@@ -42,9 +42,12 @@ let Dashboard = () => {
     navigate("/login");
   };
 
-  // const handleGetStarted = () => {
-  //   navigate(`/categories?userId=${data.id}`);
-  // };
+  // const userId = {data.id};
+  // console.log(userId);
+
+  const handleGetStarted = () => {
+    navigate(`/categories?userId=${data.id}`);
+  };
 
   if (failedAuth) {
     return (
@@ -73,10 +76,7 @@ let Dashboard = () => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.
       </h2>
-      <button
-        onClick={() => navigate("/categories")}
-        className="button button--dashboard"
-      >
+      <button onClick={handleGetStarted} className="button button--dashboard">
         Get started
       </button>
     </main>
