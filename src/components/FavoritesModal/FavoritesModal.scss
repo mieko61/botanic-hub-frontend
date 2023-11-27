@@ -5,29 +5,35 @@
 
 //Background outside of the modal
 .ReactModal__Overlay--after-open {
-  background-color: rgba($color: $black, $alpha: 0.7) !important;
-  z-index: 999;
+  background-color: rgba($color: $yellow, $alpha: 0.5) !important;
+  z-index: 2;
 }
 
 //White background of modal
 .ReactModal__Content.ReactModal__Content--after-open {
-  width: 100vw;
-  height: 100vh;
+  width: 80vw;
+  height: 20vh;
   top: 50% !important;
-  padding: 0 1rem !important;
+  // padding: 0 1rem !important;
   position: fixed;
   display: flex;
   flex-direction: column;
   background-color: white !important;
 
-  @include tablet {
-    padding: 2.5rem 4rem 1rem !important;
-    width: 90vw;
-    height: auto;
-    top: 332px !important;
-  }
-
   @include desktop {
     width: 50vw;
+  }
+}
+
+.modal {
+  &-button {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &-text {
+    padding-top: 1rem;
+    text-align: center;
+    line-height: 1.5rem;
   }
 }
