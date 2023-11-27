@@ -15,7 +15,7 @@
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  background-color: $yellow;
+  background-color: rgba($color: $yellow, $alpha: 0.8);
 
   @include desktop {
     width: 63.75rem;
