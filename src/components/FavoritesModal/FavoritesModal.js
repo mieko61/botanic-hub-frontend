@@ -48,7 +48,7 @@ function FavoritesModal({
       </div>
       <div className="modal-text">
         <h4 ref={(_subtitle) => (subtitle = _subtitle)}>{plantDetails.name}</h4>
-        <p>has been added to favorites</p>
+        <p>has been added to your favorites</p>
       </div>
     </Modal>
   );
