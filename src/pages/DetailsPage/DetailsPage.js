@@ -55,6 +55,7 @@ let Details = () => {
   const handleButtonClick = () => {
     flipValue();
     addPlant(plant);
+    console.log("execute");
   };
   return (
     <main className="main">
@@ -80,13 +81,6 @@ let Details = () => {
             <div className="buttons-container--desktop">
               <button onClick={handleButtonClick} className="button">
                 Save to favorites
-                <FavoritesModal
-                  plantDetails={plantDetails}
-                  setIsOpen={setIsOpen}
-                  isOpen={isOpen}
-                  closeModal={flipValue}
-                  ariaHideApp={false}
-                />{" "}
               </button>
               <button
                 className="button button--secondary"
@@ -104,8 +98,6 @@ let Details = () => {
               plantDetails={plantDetails}
               setIsOpen={setIsOpen}
               isOpen={isOpen}
-              // onClick={addPlant}
-              // closeModal={closeModal}
               ariaHideApp={false}
             />{" "}
           </button>
@@ -116,6 +108,12 @@ let Details = () => {
             Back to dashboard
           </button>
         </div>
+        <FavoritesModal
+          plantDetails={plantDetails}
+          isOpen={isOpen}
+          closeModal={flipValue}
+          ariaHideApp={false}
+        />{" "}
       </section>
     </main>
   );
