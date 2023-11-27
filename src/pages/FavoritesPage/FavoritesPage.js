@@ -25,16 +25,22 @@ let FavoritesPage = () => {
 
   return (
     <main className="main">
-      <div className="page-header">
-        <h2 className="page-header_title">Favorites</h2>
-      </div>
-      <div className="page-results">
-        {favorites.map((favorite) => {
-          return (
-            <FavoritesCard key={favorite.id} favorite={favorite} user={user} />
-          );
-        })}
-      </div>
+      <section className="main-container">
+        <div className="page-header">
+          <h2 className="page-header_title">Favorites</h2>
+        </div>
+        <div className="page-results">
+          {favorites.map((favorite) => {
+            return (
+              <FavoritesCard
+                key={favorite.id}
+                favorite={favorite}
+                user={user}
+              />
+            );
+          })}
+        </div>
+      </section>
     </main>
   );
 };

@@ -57,8 +57,8 @@ let Details = () => {
     addPlant();
   };
   return (
-    <main className="plant-details">
-      <div className="plant-details_upper-container">
+    <main className="main">
+      <section className="details-container">
         {/* <div className="close-button">
           <img
             className="close-button_icon"
@@ -67,7 +67,7 @@ let Details = () => {
             onClick={() => navigate(-1)}
           />
         </div> */}
-        <div className="page-header page-header--details">
+        <div className="page-header">
           <img
             src={arrowIcon}
             alt="back arrow"
@@ -76,32 +76,56 @@ let Details = () => {
           />
           <h2 className="page-header_title">Plant Details</h2>
         </div>
-
-        <img
-          alt="category image"
-          className="upper-container_image"
-          src={plantDetails.image}
-        />
-        <h3 className="upper-container_title">{plantDetails.name}</h3>
-        <p className="upper-container_body">{plantDetails.description}</p>
-      </div>
-      <div className="plant-details_lower-container">
-        <button onClick={handleButtonClick} className="button">
-          Save to favorites
-          <FavoritesModal
-            plantDetails={plantDetails}
-            setIsOpen={setIsOpen}
-            isOpen={isOpen}
-            // onClick={addPlant}
-            // closeModal={closeModal}
-            ariaHideApp={false}
-          />{" "}
-        </button>
-
-        <button className="button button--secondary" onClick={handleReturnHome}>
-          Back to dashboard
-        </button>
-      </div>
+        <div className="plant-details">
+          <img
+            alt={plantDetails.name}
+            className="plant-details_image"
+            src={plantDetails.image}
+          />
+          <div className="plant-details_info">
+            <h3 className="plant-details_title">{plantDetails.name}</h3>
+            <p className="plant-details_body">{plantDetails.description}</p>
+            <div className="buttons-container--desktop">
+              <button onClick={handleButtonClick} className="button">
+                Save to favorites
+                <FavoritesModal
+                  plantDetails={plantDetails}
+                  setIsOpen={setIsOpen}
+                  isOpen={isOpen}
+                  // onClick={addPlant}
+                  // closeModal={closeModal}
+                  ariaHideApp={false}
+                />{" "}
+              </button>
+              <button
+                className="button button--secondary"
+                onClick={handleReturnHome}
+              >
+                Back to dashboard
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="buttons-container--mobile">
+          <button onClick={handleButtonClick} className="button">
+            Save to favorites
+            <FavoritesModal
+              plantDetails={plantDetails}
+              setIsOpen={setIsOpen}
+              isOpen={isOpen}
+              // onClick={addPlant}
+              // closeModal={closeModal}
+              ariaHideApp={false}
+            />{" "}
+          </button>
+          <button
+            className="button button--secondary"
+            onClick={handleReturnHome}
+          >
+            Back to dashboard
+          </button>
+        </div>
+      </section>
     </main>
   );
 };

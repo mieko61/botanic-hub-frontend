@@ -2,6 +2,7 @@ import "./DashboardPage.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import floralImage from "../../assets/images/floral.svg";
 
 let Dashboard = () => {
   const [failedAuth, setFailedAuth] = useState(false);
@@ -52,12 +53,14 @@ let Dashboard = () => {
   if (failedAuth) {
     return (
       <main className="main">
-        <h2 className="dashboard__header--fail">
-          You must log in to see this page
-        </h2>
-        <button className="button" onClick={handleLogin}>
-          Log in
-        </button>
+        <section>
+          <h2 className="dashboard__header--fail">
+            You must log in to see this page
+          </h2>
+          <button className="button" onClick={handleLogin}>
+            Log in
+          </button>
+        </section>
       </main>
     );
   }
@@ -69,13 +72,12 @@ let Dashboard = () => {
   return (
     <main className="main">
       {failedAuth && <div>You must log in to see this page.</div>}
-
       <h3 className="dashboard__header">Hello, {data.name}</h3>
-
       <h2 className="dashboard__body">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.
       </h2>
+      {/* <img src={floralImage} /> */}
       <button onClick={handleGetStarted} className="button button--dashboard">
         Get started
       </button>

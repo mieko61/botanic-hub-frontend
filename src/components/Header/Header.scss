@@ -3,6 +3,11 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/global" as *;
 
+.header-container {
+  display: flex;
+  justify-content: center;
+}
+
 .header {
   padding: 2rem;
   position: fixed;
@@ -12,17 +17,34 @@
   align-items: center;
   background-color: $yellow;
 
+  @include desktop {
+    width: 63.75rem;
+    padding: 3rem 0;
+  }
+
   &__logo {
     height: 1.25rem;
+    @include desktop {
+      height: 1.75rem;
+    }
   }
 
   &__nav {
     display: flex;
     width: 20%;
 
+    @include desktop {
+      justify-content: flex-end;
+      align-items: center;
+    }
+
     & a {
       padding-left: 0.5rem;
       height: 1.25rem;
+
+      @include desktop {
+        padding-left: 1rem;
+      }
     }
   }
 }

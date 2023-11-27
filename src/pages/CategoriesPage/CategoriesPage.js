@@ -26,20 +26,28 @@ let Categories = () => {
 
   return (
     <main className="main">
-      <div className="page-header">
-        <img
-          src={arrowIcon}
-          alt="back arrow"
-          className="page-header__arrow"
-          onClick={() => navigate(-1)}
-        />
-        <h2 className="page-header_title">Select a category</h2>
-      </div>
-      {allCategories.map((category) => {
-        return (
-          <CategoryCard key={category.id} category={category} userId={userId} />
-        );
-      })}
+      <section className="main-container">
+        <div className="page-header">
+          <img
+            src={arrowIcon}
+            alt="back arrow"
+            className="page-header__arrow"
+            onClick={() => navigate(-1)}
+          />
+          <h2 className="page-header_title">Select a category</h2>
+        </div>
+        <div className="cards-container">
+          {allCategories.map((category) => {
+            return (
+              <CategoryCard
+                key={category.id}
+                category={category}
+                userId={userId}
+              />
+            );
+          })}
+        </div>
+      </section>
     </main>
   );
 };

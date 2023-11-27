@@ -27,25 +27,29 @@ let HealthUse = () => {
 
   return (
     <main className="main">
-      <div className="page-header">
-        <img
-          src={arrowIcon}
-          alt="back arrow"
-          className="page-header__arrow"
-          onClick={() => navigate(-1)}
-        />
-        <h2 className="page-header_title">Select a topic</h2>
-      </div>
-      {allHealthUses.map((healthUse) => {
-        return (
-          <HealthUseCard
-            key={healthUse.id}
-            healthUse={healthUse}
-            category={category}
-            userId={userId}
+      <section className="main-container">
+        <div className="page-header">
+          <img
+            src={arrowIcon}
+            alt="back arrow"
+            className="page-header__arrow"
+            onClick={() => navigate(-1)}
           />
-        );
-      })}
+          <h2 className="page-header_title">Select a topic</h2>
+        </div>
+        <div className="cards-container">
+          {allHealthUses.map((healthUse) => {
+            return (
+              <HealthUseCard
+                key={healthUse.id}
+                healthUse={healthUse}
+                category={category}
+                userId={userId}
+              />
+            );
+          })}
+        </div>
+      </section>
     </main>
   );
 };

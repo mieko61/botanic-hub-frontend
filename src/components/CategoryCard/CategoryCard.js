@@ -9,10 +9,8 @@ let CategoryCard = ({ category, userId }) => {
     navigate(`/healthUse?category=${category.id}&userId=${userId}`);
   };
   return (
-    <div>
-      <div className="card" onClick={handleRenderHealthUse}>
-        <h3 className="card__title">{category.name}</h3>
-      </div>
+    <div className="card" onClick={handleRenderHealthUse}>
+      <h3 className="card__title">{category.name}</h3>
     </div>
   );
 };

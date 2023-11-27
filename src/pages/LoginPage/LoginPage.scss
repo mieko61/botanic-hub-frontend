@@ -3,6 +3,13 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/global" as *;
 
+.auth-container {
+  @include desktop {
+    width: 25%;
+    padding-top: 8rem;
+  }
+}
+
 .login {
   &-title {
     text-align: left;

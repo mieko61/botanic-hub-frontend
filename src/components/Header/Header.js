@@ -19,30 +19,32 @@ const Header = () => {
   const svgColor = isHovered ? "#d64550" : "#ea9e8d";
 
   return (
-    <header className="header">
-      <Link to="/">
-        <img src={logo} alt="logo" className="header__logo" />
-      </Link>
-      <div className="header__nav">
-        <NavLink to="/favorites">
-          <HeartIcon
-            alt="favorites icon"
-            className="header-icon"
-            fill={svgColor}
-            stroke={svgColor}
-          />
-        </NavLink>
-        <NavLink
-          to="/settings"
-          // className={({ isActive }) => (isActive ? "active" : "inactive")}
-        >
-          <SettingsIcon
-            alt="settings icon"
-            className="header-icon"
-            fill={svgColor}
-            stroke={svgColor}
-          />
-        </NavLink>
+    <header className="header-container">
+      <div className="header">
+        <Link to="/">
+          <img src={logo} alt="logo" className="header__logo" />
+        </Link>
+        <div className="header__nav">
+          <NavLink to="/favorites">
+            <HeartIcon
+              alt="favorites icon"
+              className="header-icon"
+              fill={svgColor}
+              stroke={svgColor}
+            />
+          </NavLink>
+          <NavLink
+            to="/settings"
+            // className={({ isActive }) => (isActive ? "active" : "inactive")}
+          >
+            <SettingsIcon
+              alt="settings icon"
+              className="header-icon"
+              fill={svgColor}
+              stroke={svgColor}
+            />
+          </NavLink>
+        </div>
       </div>
     </header>
   );

@@ -28,20 +28,22 @@ let Signup = () => {
 
   return (
     <main className="main">
-      <h1 className="login-title">Sign up</h1>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <Input type="text" name="name" label="Name" />
-        <Input type="text" name="email" label="Email" />
-        <Input type="password" name="password" label="Password" />
-        <button className="button button-login">Sign up</button>
-        {error && <div>{error}</div>}
-      </form>
-      <p className="signup-text">
-        Already have an account?{" "}
-        <Link to="/login" className="signup-text_link">
-          Log in
-        </Link>
-      </p>
+      <section className="auth-container">
+        <h1 className="login-title">Sign up</h1>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <Input type="text" name="name" label="Name" />
+          <Input type="text" name="email" label="Email" />
+          <Input type="password" name="password" label="Password" />
+          <button className="button button-login">Sign up</button>
+          {error && <div>{error}</div>}
+        </form>
+        <p className="signup-text">
+          Already have an account?{" "}
+          <Link to="/login" className="signup-text_link">
+            Log in
+          </Link>
+        </p>
+      </section>
     </main>
   );
 };

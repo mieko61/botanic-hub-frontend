@@ -29,27 +29,29 @@ let Results = () => {
 
   return (
     <main className="main">
-      <div className="page-header">
-        <img
-          src={arrowIcon}
-          alt="back arrow"
-          className="page-header__arrow"
-          onClick={() => navigate(-1)}
-        />
-        <h2 className="page-header_title">Results</h2>
-      </div>
-      <div className="page-results">
-        {allResults.map((plant) => {
-          return (
-            <ResultCard
-              key={plant.id}
-              plant={plant}
-              healthUse={healthUse}
-              userId={userId}
-            />
-          );
-        })}
-      </div>
+      <section className="main-container">
+        <div className="page-header">
+          <img
+            src={arrowIcon}
+            alt="back arrow"
+            className="page-header__arrow"
+            onClick={() => navigate(-1)}
+          />
+          <h2 className="page-header_title">Results</h2>
+        </div>
+        <div className="page-results">
+          {allResults.map((plant) => {
+            return (
+              <ResultCard
+                key={plant.id}
+                plant={plant}
+                healthUse={healthUse}
+                userId={userId}
+              />
+            );
+          })}
+        </div>
+      </section>
     </main>
   );
 };

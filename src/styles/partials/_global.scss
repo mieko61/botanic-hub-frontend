@@ -21,29 +21,57 @@ body {
 
 h1 {
   font-size: 24px;
+  @include desktop {
+    font-size: 26px;
+  }
 }
 
 h2 {
   font-size: 18px;
   font-weight: 700;
+  @include desktop {
+    font-size: 20px;
+  }
 }
 
 h3 {
   font-family: "Gloock";
   font-size: 20px;
+  @include desktop {
+    font-size: 22px;
+  }
 }
 
 h4 {
   font-family: "Gloock";
   font-size: 14px;
+  @include desktop {
+    font-size: 16px;
+  }
 }
 
 p {
   font-size: 12px;
+  @include desktop {
+    font-size: 13px;
+  }
 }
 
 .main {
   padding: 8rem 3rem 3rem;
+
+  @include desktop {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 9rem 0 3rem;
+  }
+
+  &-container {
+    @include desktop {
+      width: 63.75rem;
+    }
+  }
 }
 
 .button {
@@ -57,6 +85,11 @@ p {
   font-weight: 700;
   cursor: pointer;
 
+  @include desktop {
+    font-size: 14px;
+    padding: 0 1.5rem;
+  }
+
   &:hover {
     background-color: $red;
   }
@@ -66,6 +99,10 @@ p {
     background-color: $yellow;
     color: $peach;
     border: 2px solid $peach;
+
+    @include desktop {
+      margin: 0 0 0 2rem;
+    }
     &:hover {
       background-color: $red;
       color: $yellow;
@@ -85,6 +122,14 @@ p {
   }
 }
 
+.cards-container {
+  @include desktop {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
 .card {
   display: flex;
   width: 100%;
@@ -94,6 +139,11 @@ p {
   border-radius: 0.5rem;
   height: 8rem;
   align-items: flex-end;
+
+  @include desktop {
+    width: 48%;
+    margin-top: 2.5rem;
+  }
 
   &:hover {
     background-color: $active-green;
