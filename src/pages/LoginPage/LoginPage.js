@@ -4,7 +4,7 @@ import { useState } from "react";
 import Input from "../../components/Input/Input";
 import { useNavigate, Link } from "react-router-dom";
 
-let Login = () => {
+let Login = ({ setIsLoggedIn }) => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ let Login = () => {
       console.log(response.data);
 
       sessionStorage.setItem("token", response.data.token);
-
+      setIsLoggedIn(true);
       navigate(`/?userId=${response.data.id}`);
     } catch (error) {
       setError(error.message);

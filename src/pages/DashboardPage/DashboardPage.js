@@ -11,13 +11,6 @@ let Dashboard = () => {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
 
-  const logout = () => {
-    sessionStorage.removeItem("token");
-    setData(null);
-    setFailedAuth(true);
-    navigate("/login");
-  };
-
   const login = async () => {
     const apiBody = process.env.REACT_APP_BASE_URL;
     const token = sessionStorage.getItem("token");

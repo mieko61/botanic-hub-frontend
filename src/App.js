@@ -30,18 +30,21 @@ function App() {
         <Header />
         <Routes>
           <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={<Login setIsLoggedIn={setIsLoggedIn} />}
+          />
           <Route path="/logout" element={<Logout isLoggedin={isLoggedin} />} />
           <Route path="/" element={<Dashboard />} />
           <Route
             path="/favorites"
             element={<Favorites isLoggedin={isLoggedin} />}
           />
-          <Route path="/favorites/plant" />
-          <Route path="/categories" />
-          <Route path="/healthUse" />
-          <Route path="/results" />
-          <Route path="/plantdetails" />
+          <Route path="/favorites/plant" element={<FavoritesCard />} />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/healthUse" element={<HealthUse />} />
+          <Route path="/results" element={<Results />} />
+          <Route path="/plantdetails" element={<DetailsPage />} />
         </Routes>
       </Router>
     </div>

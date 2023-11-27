@@ -1,13 +1,23 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 let SettingsPage = ({ isLoggedin }) => {
   const navigate = useNavigate();
+  // const [data, setData] = useState(null);
+  // const [failedAuth, setFailedAuth] = useState(false);
+
+  const logout = () => {
+    sessionStorage.removeItem("token");
+    // setData(null);
+    // setFailedAuth(true);
+    navigate("/login");
+  };
 
   const handleLogin = () => {
     navigate("/login");
   };
 
-  if (!isLoggedin)
+  if (!isLoggedin) {
     return (
       <main className="main">
         <section>
@@ -20,8 +30,15 @@ let SettingsPage = ({ isLoggedin }) => {
         </section>
       </main>
     );
-  return;
-  <div></div>;
+  }
+
+  return (
+    <main className="main">
+      <button className="button" onClick={logout}>
+        Log out
+      </button>
+    </main>
+  );
 };
 
 export default SettingsPage;
