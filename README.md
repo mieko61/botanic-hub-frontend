@@ -1,149 +1,65 @@
-# Medicinal Plants
-
-## Overview
+# BOTANIC HUB - front end
 
 This app is a resource for medicinal herbs and plants. It allows users to learn about their health benefits and how they can be used to treat specific symptoms.
 
-### Problem
+## Back end - git clone
 
-There is limited access to herbal medicine and its benefits in traditional Western medicine. Although there is a great variety of medicinal plants out there, not many people are aware or have easy access to them and their specific benefits.
+https://github.com/mieko61/mieko-tominaga-capstone-server.git
 
-### User Profile
+## Features
 
-The app is meant for anyone who is looking for natural alternatives to tradicinal medicine to treat specific symptons or conditions. It will have to be intuitive and simple and must contain curated information in order to prevent users from feeling overwhelmed with too much information.
+- Categorized end uses: The plant data is organized by health concern.
+- Favorites: Users are able to save individual plants to their Favorites tab for easy access.
+- User authentication: Users can sign up and log in to their accounts in order to access their favorite plants.
 
-### Features
+## Tech Stack
 
-- The user will be able to look up herbs based on a specific health concerns.
-- Each plant profile will contain an image, name, and short description.
-- The user will be able to save any plant profile to their "favorites" tab for easy access.
+- React
+- Sass
+- Axios
 
-## Implementation
+## Installation
 
-### Tech Stack
+1. Clone the repository:
+   https://github.com/mieko61/mieko-tominaga-capstone-client.git
 
-- Horizon UI for modal
-- Grommet for pagination
-- Puppeteer for API access
+2. Install dependencies:
 
-### APIs
+```bash
+  npm i
+```
 
-https://www.mskcc.org/cancer-care/diagnosis-treatment/symptom-management/integrative-medicine/herbs/search
+3. Set the API base URL to your locale server URL:
 
-Other resources:
+4. Run the server:
 
-- https://www.mskcc.org/cancer-care/diagnosis-treatment/symptom-management/integrative-medicine/herbs/search
-- https://www.hopkinsmedicine.org/health/wellness-and-prevention/herbal-medicine
-- https://www.urmc.rochester.edu/encyclopedia/content.aspx?contenttypeid=1&contentid=1169
-- https://www.medicalnewstoday.com/articles/herbal-medicine#supplements
+```bash
+  npm start
+```
 
-API response example for each plant:
+## API Usage
 
-[
-{
-id: 1,
-image:
-"https://www.mskcc.org/sites/default/files/styles/large/public/node/3226/images/Chamomile011_3x2.jpg",
-name: "chamomille",
-description:
-"Chamomile is an herb used in traditional medicine for its relaxing and calming effects. It’s mostly taken as herbal tea. You can also take chamomile capsules or tablets.",
-uses: [
-"Lower stress",
-"Treat insomnia (trouble falling asleep, staying asleep, or waking up too early)",
-"Lower anxiety (strong feelings of worry or fear)",
-"Treat depression",
-"Treat mouth sores from cancer treatment",
-"Treat upset stomach and diarrhea (loose or watery bowel movements)",
-],
-},
-];
+Axios is used to make API calls to the server side.
 
-### Sitemap
+Here is an example:
 
-- Homepage
-- Favorites
-- Settings
+```bash
+import axios from "axios";
 
-[View sitemap](https://octopus.do/uhzfhykxae8)
+  useEffect(() => {
+    const apiBody = process.env.REACT_APP_BASE_URL;
+    const renderplantDetails = async () => {
+      let response = await axios.get(`${apiBody}/plantdetails?plant=${plant}`);
+      setPlantDetails(response.data);
+    };
+    renderplantDetails();
+  }, []);
+```
 
-### Mockups
+## Environment Variables
 
-[View Figma prototype](https://www.figma.com/file/laJkSMbICbdav1DjSCWt72/capstone-project?type=design&node-id=13%3A2&mode=design&t=BbxDlKGm9fTbSkdh-1)
+To run this project, you will need to add the following environment variables to your .env file
 
-### Data
+`REACT_APP_BASE_URL`
 
-| user        |
-| ----------- |
-| userId (pk) |
-| name        |
-| email       |
-
-| favoritePlants        |
-| --------------------- |
-| favoritePlantsId (pk) |
-| userId (fk)           |
-| plantId (fk)          |
-
-| plant        |
-| ------------ |
-| plantId (pk) |
-| name         |
-| description  |
-| image        |
-
-| plantUses        |
-| ---------------- |
-| plantUsesId (pk) |
-| plantId (fk)     |
-| usesId (fk)      |
-
-| uses        |
-| ----------- |
-| usesId (pk) |
-| uses        |
-
-### Endpoints
-
-List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
-
-- POST /register
-- GET /homepage
-- POST /favorites
-- DELETE /favorites
-
-### Auth
-
-Users will register their email address before using the app, so their Favorites information will be associated to that specific account.
-
-## Roadmap
-
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build.
-
-Week 9:
-
-- Create responsive prototype
-- Research health topics and build health categories for app accordingly
-- Set up mockup data
-
-Week 10:
-
-- Set up front and back ends (node, axios, express)
-- Style responsive front-end
-- Research and try pagination
-- Develop & test front-end logic with mockup data
-
-Week 11:
-
-- Develop back-end logic
-- Test Puppeteer and endpoint requests
-- Connect front and backend
-
-Week 12:
-
-- Work on authentication
-- Test app and look for bugs
-
-## Nice-to-haves
-
-- Add more health concern categories and expand database
-- Provide options of products like teas of the herb the user is interested in using
+`PORT`
