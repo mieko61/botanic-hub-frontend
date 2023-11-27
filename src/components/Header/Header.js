@@ -3,9 +3,12 @@ import logo from "../../assets/images/logo.svg";
 import HeartIcon from "../HeartIcon/HeartIcon";
 import SettingsIcon from "../SettingsIcon/SettingsIcon";
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate, useSearchParams } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const userId = searchParams.get("userId");
   const [isHovered, setIsHovered] = useState(false);
 
   const handlePressIn = () => {
@@ -18,6 +21,11 @@ const Header = () => {
 
   const svgColor = isHovered ? "#d64550" : "#ea9e8d";
 
+  const handleFavorites = () => {
+    navigate("/favorites");
+    // navigate(`/favorites?userId=${userId}`);
+  };
+
   return (
     <header className="header-container">
       <div className="header">
@@ -25,7 +33,7 @@ const Header = () => {
           <img src={logo} alt="logo" className="header__logo" />
         </Link>
         <div className="header__nav">
-          <NavLink to="/favorites">
+          <NavLink to={"/favorites"}>
             <HeartIcon
               alt="favorites icon"
               className="header-icon"

@@ -21,7 +21,7 @@ let Login = () => {
 
       sessionStorage.setItem("token", response.data.token);
 
-      navigate("/");
+      navigate(`/?userId=${response.data.id}`);
     } catch (error) {
       setError(error.message);
       console.log(error);
