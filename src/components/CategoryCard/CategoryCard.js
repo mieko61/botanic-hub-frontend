@@ -1,7 +1,4 @@
-import "./CategoryCard.scss";
-import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 let CategoryCard = ({ category, userId }) => {
   const navigate = useNavigate();

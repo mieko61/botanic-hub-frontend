@@ -1,4 +1,3 @@
-import "./FavoritesCard.scss";
 import { useNavigate } from "react-router-dom";
 
 let FavoritesCard = ({ favorite, user }) => {

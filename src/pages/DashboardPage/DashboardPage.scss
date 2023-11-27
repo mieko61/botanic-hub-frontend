@@ -37,25 +37,25 @@
     line-height: 2rem;
     padding-left: 1rem;
     position: relative;
-    top: -13rem;
+    top: 16rem;
     right: 0;
   }
 
   &__image {
     height: 30rem;
     align-self: flex-end;
-    position: relative;
-    left: 2rem;
-    top: -2rem;
+    position: absolute;
+    left: 3rem;
+    top: 3rem;
 
     @include desktop {
-      left: 0;
+      left: 24rem;
     }
   }
 }
 
 .button--dashboard {
   position: absolute;
-  bottom: 9rem;
+  bottom: -20rem;
   left: 1rem;
 }

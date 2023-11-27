@@ -35,7 +35,7 @@ const Header = () => {
           </NavLink>
           <NavLink
             to="/settings"
-            // className={({ isActive }) => (isActive ? "active" : "inactive")}
+            className={({ isActive }) => (isActive ? "active" : "inactive")}
           >
             <SettingsIcon
               alt="settings icon"

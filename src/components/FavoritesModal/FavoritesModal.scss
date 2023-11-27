@@ -20,14 +20,8 @@
   flex-direction: column;
   background-color: white !important;
 
-  @include tablet {
-    padding: 2.5rem 4rem 1rem !important;
-    width: 90vw;
-    height: auto;
-    top: 332px !important;
-  }
-
   @include desktop {
+    padding: 5rem !important;
     width: 50vw;
   }
 }
