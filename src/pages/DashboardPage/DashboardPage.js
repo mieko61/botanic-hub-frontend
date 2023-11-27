@@ -2,7 +2,6 @@ import "./DashboardPage.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-// import floralImage from "../../assets/images/floral.svg";
 import plantDrawing from "../../assets/images/plant.png";
 
 let Dashboard = () => {
