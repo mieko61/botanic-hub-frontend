@@ -1,9 +1,6 @@
 import "./FavoritesModal.scss";
 import Modal from "react-modal";
 import closeIcon from "../../assets/images/icons/x-circle.svg";
-import { useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import axios from "axios";
 
 const customStyles = {
   content: {
@@ -16,13 +13,7 @@ const customStyles = {
   },
 };
 
-function FavoritesModal({
-  plantDetails,
-  addPlant,
-  setIsOpen,
-  isOpen,
-  closeModal,
-}) {
+function FavoritesModal({ plantDetails, isOpen, closeModal }) {
   let subtitle;
 
   function afterOpenModal() {

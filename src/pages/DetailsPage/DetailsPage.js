@@ -12,6 +12,7 @@ let Details = () => {
   const plant = searchParams.get("plant");
   const userId = searchParams.get("userId");
 
+  console.log(plant);
   let [isOpen, setIsOpen] = useState(false);
   const [updatedFavorites, setUpdatedFavorites] = useState();
 
@@ -28,18 +29,18 @@ let Details = () => {
     renderplantDetails();
   }, []);
 
-  let addPlant = async () => {
+  let addPlant = async (plant) => {
     const apiBody = process.env.REACT_APP_BASE_URL;
+    console.log(plant);
+    const newPlant = { plant_id: plant };
     try {
       await plantDetails;
 
-      let response = await axios.post(`${apiBody}/favorites?user=${userId}`, {
-        plant_id: plantDetails.id,
-      });
-      // setUpdatedFavorites();
-      console.log(plantDetails.id);
-
-      console.log("Plant was successfully added", response.data);
+      let response = await axios.post(
+        `${apiBody}/favorites?user=${userId}`,
+        newPlant
+      );
+      setUpdatedFavorites();
     } catch (error) {
       console.error("Error adding plant", error);
     }
@@ -47,17 +48,13 @@ let Details = () => {
 
   if (!plantDetails) return null;
 
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function closeModal() {
-    setIsOpen(false);
+  function flipValue() {
+    setIsOpen(!isOpen);
   }
 
   const handleButtonClick = () => {
-    openModal();
-    addPlant();
+    flipValue();
+    addPlant(plant);
   };
   return (
     <main className="main">
@@ -87,8 +84,7 @@ let Details = () => {
                   plantDetails={plantDetails}
                   setIsOpen={setIsOpen}
                   isOpen={isOpen}
-                  onClick={addPlant(plantDetails.id)}
-                  closeModal={closeModal}
+                  closeModal={flipValue}
                   ariaHideApp={false}
                 />{" "}
               </button>
