@@ -1,7 +1,7 @@
 import "./DashboardPage.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import plantDrawing from "../../assets/images/plant.png";
 
 let Dashboard = () => {
@@ -36,7 +36,6 @@ let Dashboard = () => {
     setIsLoading(false);
   };
 
-  //copy paste to all pages that require authentication
   useEffect(() => {
     login();
   }, []);
@@ -44,9 +43,6 @@ let Dashboard = () => {
   const handleLogin = () => {
     navigate("/login");
   };
-
-  // const userId = {data.id};
-  // console.log(userId);
 
   const handleGetStarted = () => {
     navigate(`/categories?userId=${data.id}`);

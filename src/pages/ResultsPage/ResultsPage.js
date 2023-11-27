@@ -20,7 +20,6 @@ let Results = () => {
         `${apiBody}/results?healthUse=${healthUse}&category=${category}`
       );
       setAllResults(response.data);
-      console.log(response.data);
     };
     renderResults();
   }, []);

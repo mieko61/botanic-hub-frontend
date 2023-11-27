@@ -1,11 +1,7 @@
-import "./HealthUseCard.scss";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
 
 let HealthUseCard = ({ healthUse, category, userId }) => {
   const navigate = useNavigate();
-  console.log(userId);
 
   const handleRenderResults = () => {
     navigate(

@@ -1,4 +1,3 @@
-import "./SignupPage.scss";
 import Input from "../../components/Input/Input";
 import axios from "axios";
 import { useState } from "react";

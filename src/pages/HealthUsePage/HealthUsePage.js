@@ -1,4 +1,3 @@
-import "./HealthUsePage.scss";
 import HealthUseCard from "../../components/HealthUseCard/HealthUseCard";
 import arrowIcon from "../../assets/images/icons/back.svg";
 import axios from "axios";

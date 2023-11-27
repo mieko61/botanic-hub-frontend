@@ -1,4 +1,3 @@
-import "./CategoriesPage.scss";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import arrowIcon from "../../assets/images/icons/back.svg";
 import axios from "axios";
@@ -10,8 +9,6 @@ let Categories = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const userId = searchParams.get("userId");
-
-  console.log(userId);
 
   useEffect(() => {
     const apiBody = process.env.REACT_APP_BASE_URL;

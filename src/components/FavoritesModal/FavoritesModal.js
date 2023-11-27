@@ -1,4 +1,4 @@
-import "./FavoritesModal";
+import "./FavoritesModal.scss";
 import Modal from "react-modal";
 import closeIcon from "../../assets/images/icons/x-circle.svg";
 import { useState } from "react";
@@ -16,15 +16,17 @@ const customStyles = {
   },
 };
 
-function FavoritesModal({ plantDetails, addPlant, setIsOpen, isOpen }) {
+function FavoritesModal({
+  plantDetails,
+  addPlant,
+  setIsOpen,
+  isOpen,
+  closeModal,
+}) {
   let subtitle;
 
   function afterOpenModal() {
-    subtitle.style.color = "#13182C";
-  }
-
-  function closeModal() {
-    setIsOpen(false);
+    subtitle.style.color = "#1c2826";
   }
 
   return (
@@ -34,17 +36,20 @@ function FavoritesModal({ plantDetails, addPlant, setIsOpen, isOpen }) {
       onRequestClose={closeModal}
       style={customStyles}
       contentLabel="Example Modal"
+      ariaHideApp={false}
     >
-      <img
-        src={closeIcon}
-        onClick={() => {
-          // addPlant(plantDetails);
-          setIsOpen(false);
-        }}
-      />
-      <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
-        {plantDetails.name} has been added to favorites
-      </h2>
+      <div className="modal-button">
+        <img
+          src={closeIcon}
+          alt="close icon"
+          className="close-button_icon"
+          onClick={closeModal}
+        />
+      </div>
+      <div className="modal-text">
+        <h4 ref={(_subtitle) => (subtitle = _subtitle)}>{plantDetails.name}</h4>
+        <p>has been added to your favorites</p>
+      </div>
     </Modal>
   );
 }
