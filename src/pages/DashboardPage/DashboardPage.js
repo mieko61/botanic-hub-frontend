@@ -2,7 +2,7 @@ import "./DashboardPage.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import floralImage from "../../assets/images/floral.svg";
+// import floralImage from "../../assets/images/floral.svg";
 
 let Dashboard = () => {
   const [failedAuth, setFailedAuth] = useState(false);
@@ -12,6 +12,8 @@ let Dashboard = () => {
 
   const logout = () => {
     sessionStorage.removeItem("token");
+    setData(null);
+    setFailedAuth(true);
     navigate("/login");
   };
 
