@@ -1,9 +1,7 @@
 import "./DetailsPage.scss";
-import closeIcon from "../../assets/images/icons/x-circle.svg";
 import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { render } from "@testing-library/react";
 import FavoritesModal from "../../components/FavoritesModal/FavoritesModal";
 import arrowIcon from "../../assets/images/icons/back.svg";
 
@@ -39,6 +37,7 @@ let Details = () => {
         plant_id: plantDetails.id,
       });
       // setUpdatedFavorites();
+      console.log(plantDetails.id);
 
       console.log("Plant was successfully added", response.data);
     } catch (error) {
@@ -52,6 +51,10 @@ let Details = () => {
     setIsOpen(true);
   }
 
+  function closeModal() {
+    setIsOpen(false);
+  }
+
   const handleButtonClick = () => {
     openModal();
     addPlant();
@@ -59,14 +62,6 @@ let Details = () => {
   return (
     <main className="main">
       <section className="details-container">
-        {/* <div className="close-button">
-          <img
-            className="close-button_icon"
-            src={closeIcon}
-            alt="close icon"
-            onClick={() => navigate(-1)}
-          />
-        </div> */}
         <div className="page-header">
           <img
             src={arrowIcon}
@@ -92,8 +87,8 @@ let Details = () => {
                   plantDetails={plantDetails}
                   setIsOpen={setIsOpen}
                   isOpen={isOpen}
-                  // onClick={addPlant}
-                  // closeModal={closeModal}
+                  onClick={addPlant(plantDetails.id)}
+                  closeModal={closeModal}
                   ariaHideApp={false}
                 />{" "}
               </button>
