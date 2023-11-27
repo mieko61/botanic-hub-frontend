@@ -32,8 +32,13 @@
   }
 
   &-text {
-    padding-top: 2.5rem;
+    padding-top: 1rem;
     text-align: center;
-    line-height: 2rem;
+    line-height: 1.5rem;
+
+    @include desktop {
+      padding-top: 2.5rem;
+      line-height: 2rem;
+    }
   }
 }
