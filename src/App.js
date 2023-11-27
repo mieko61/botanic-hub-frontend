@@ -1,12 +1,5 @@
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-  useNavigate,
-  Link,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Login from "./pages/LoginPage/LoginPage";
 import Dashboard from "./pages/DashboardPage/DashboardPage";
@@ -19,10 +12,17 @@ import FavoritesCard from "./components/FavoritesCard/FavoritesCard";
 import Signup from "./pages/SignupPage/SignupPage";
 import Settings from "./pages/SettingsPage/SettingsPage";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [token, setToken] = useState(sessionStorage.getItem("token") || false);
+  const [isLoggedin, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   return (
     <div className="App">
@@ -31,17 +31,35 @@ function App() {
         <Routes>
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<Settings />} />
+          <Route
+            path="/logout"
+            element={<Settings isLoggedin={isLoggedin} />}
+          />
           <Route path="/" element={<Dashboard />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/favorites/plant" element={<FavoritesCard />} />
+          <Route
+            path="/favorites"
+            element={<Favorites isLoggedin={isLoggedin} />}
+          />
+          <Route
+            path="/favorites/plant"
+            element={<FavoritesCard isLoggedin={isLoggedin} />}
+          />
           <Route
             path="/categories"
-            element={<Categories setSelectedCategory={setSelectedCategory} />}
+            element={<Categories isLoggedin={isLoggedin} />}
           />
-          <Route path="/healthUse" element={<HealthUse />} />
-          <Route path="/results" element={<Results />} />
-          <Route path="/plantdetails" element={<DetailsPage />} />
+          <Route
+            path="/healthUse"
+            element={<HealthUse isLoggedin={isLoggedin} />}
+          />
+          <Route
+            path="/results"
+            element={<Results isLoggedin={isLoggedin} />}
+          />
+          <Route
+            path="/plantdetails"
+            element={<DetailsPage isLoggedin={isLoggedin} />}
+          />
         </Routes>
       </Router>
     </div>

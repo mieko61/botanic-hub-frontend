@@ -4,6 +4,7 @@ import HeartIcon from "../HeartIcon/HeartIcon";
 import SettingsIcon from "../SettingsIcon/SettingsIcon";
 import { useState } from "react";
 import { Link, NavLink, useNavigate, useSearchParams } from "react-router-dom";
+import { ReactComponent as Heart } from "../../assets/images/icons/heart.svg";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -34,12 +35,13 @@ const Header = () => {
         </Link>
         <div className="header__nav">
           <NavLink to={"/favorites"}>
-            <HeartIcon
+            {/* <HeartIcon
               alt="favorites icon"
               className="header-icon"
               fill={svgColor}
               stroke={svgColor}
-            />
+            /> */}
+            <Heart className="heart" />
           </NavLink>
           <NavLink
             to="/settings"

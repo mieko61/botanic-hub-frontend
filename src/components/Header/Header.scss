@@ -3,6 +3,10 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/global" as *;
 
+.heart:hover {
+  fill: green;
+}
+
 .header-container {
   display: flex;
   justify-content: center;
