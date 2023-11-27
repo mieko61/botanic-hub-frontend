@@ -29,7 +29,7 @@ let Signup = () => {
   return (
     <main className="main">
       <section className="auth-container">
-        <h1 className="login-title">Sign up</h1>
+        <h2 className="login-title">Sign up</h2>
         <form className="login-form" onSubmit={handleSubmit}>
           <Input type="text" name="name" label="Name" />
           <Input type="text" name="email" label="Email" />

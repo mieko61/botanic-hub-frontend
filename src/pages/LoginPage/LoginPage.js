@@ -31,7 +31,7 @@ let Login = () => {
   return (
     <main className="main">
       <section className="auth-container">
-        <h1 className="login-title">Log in</h1>
+        <h2 className="login-title">Log in</h2>
         <form className="login-form" onSubmit={handleSubmit}>
           <Input type="text" name="email" label="Email" />
           <Input type="password" name="password" label="Password" />

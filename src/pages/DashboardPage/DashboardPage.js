@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 // import floralImage from "../../assets/images/floral.svg";
+import plantDrawing from "../../assets/images/plant.png";
 
 let Dashboard = () => {
   const [failedAuth, setFailedAuth] = useState(false);
@@ -73,16 +74,17 @@ let Dashboard = () => {
 
   return (
     <main className="main">
-      {failedAuth && <div>You must log in to see this page.</div>}
-      <h3 className="dashboard__header">Hello, {data.name}</h3>
-      <h2 className="dashboard__body">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </h2>
-      {/* <img src={floralImage} /> */}
-      <button onClick={handleGetStarted} className="button button--dashboard">
-        Get started
-      </button>
+      <section className="dashboard-container">
+        {failedAuth && <div>You must log in to see this page.</div>}
+        <h1 className="dashboard__header">Hello, {data.name}</h1>
+        <img src={plantDrawing} className="dashboard__image" />
+        <h2 className="dashboard__body">
+          Discover the power of plants and the benefits of herbal medicine.
+        </h2>
+        <button onClick={handleGetStarted} className="button button--dashboard">
+          Get started
+        </button>
+      </section>
     </main>
   );
 };

@@ -4,10 +4,26 @@
 @use "../../styles/partials/global" as *;
 
 .dashboard {
+  &-container {
+    width: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+      padding-top: 2rem;
+    }
+  }
+
   &__header {
     text-align: left;
     padding-bottom: 3rem;
     letter-spacing: 0.16rem;
+
+    @include desktop {
+      position: absolute;
+      top: 14rem;
+    }
 
     &--fail {
       padding: 8rem 2rem 2rem;
@@ -20,10 +36,26 @@
     width: 60%;
     line-height: 2rem;
     padding-left: 1rem;
+    position: relative;
+    top: -13rem;
+    right: 0;
+  }
+
+  &__image {
+    height: 30rem;
+    align-self: flex-end;
+    position: relative;
+    left: 2rem;
+    top: -2rem;
+
+    @include desktop {
+      left: 0;
+    }
   }
 }
 
 .button--dashboard {
   position: absolute;
-  bottom: 5rem;
+  bottom: 9rem;
+  left: 1rem;
 }
