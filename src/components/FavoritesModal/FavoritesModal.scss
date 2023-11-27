@@ -21,7 +21,7 @@
   background-color: white !important;
 
   @include desktop {
-    width: 50vw;
+    width: 25vw;
   }
 }
 
@@ -32,8 +32,8 @@
   }
 
   &-text {
-    padding-top: 1rem;
+    padding-top: 2.5rem;
     text-align: center;
-    line-height: 1.5rem;
+    line-height: 2rem;
   }
 }
