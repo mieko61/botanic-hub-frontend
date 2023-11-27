@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import plantDrawing from "../../assets/images/plant.png";
+import LoginPrompt from "../../components/LoginPrompt/LoginPrompt";
 
 let Dashboard = () => {
   const [failedAuth, setFailedAuth] = useState(false);
@@ -40,27 +41,12 @@ let Dashboard = () => {
     login();
   }, []);
 
-  const handleLogin = () => {
-    navigate("/login");
-  };
-
   const handleGetStarted = () => {
     navigate(`/categories?userId=${data.id}`);
   };
 
   if (failedAuth) {
-    return (
-      <main className="main">
-        <section>
-          <h2 className="dashboard__header--fail">
-            You must log in to see this page
-          </h2>
-          <button className="button" onClick={handleLogin}>
-            Log in
-          </button>
-        </section>
-      </main>
-    );
+    return <LoginPrompt />;
   }
 
   if (isLoading) {

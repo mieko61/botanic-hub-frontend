@@ -2,8 +2,9 @@ import { useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import FavoritesCard from "../../components/FavoritesCard/FavoritesCard";
+import LoginPrompt from "../../components/LoginPrompt/LoginPrompt";
 
-let FavoritesPage = () => {
+let FavoritesPage = ({ isLoggedin }) => {
   const [favorites, setFavorites] = useState();
   const [searchParams] = useSearchParams();
   const user = searchParams.get("user");
@@ -21,6 +22,8 @@ let FavoritesPage = () => {
     renderFavorites();
   }, []);
   if (!favorites) return null;
+
+  if (!isLoggedin) return <LoginPrompt />;
 
   return (
     <main className="main">

@@ -25,7 +25,7 @@ const Header = () => {
           <NavLink to={"/favorites"}>
             <Heart className="heart" />
           </NavLink>
-          <NavLink to="/settings">
+          <NavLink to={"/logout"}>
             <Settings className="settings" />
           </NavLink>
         </div>
