@@ -1,3 +1,4 @@
+import "./LogoutPage.scss";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -33,7 +34,7 @@ let SettingsPage = ({ isLoggedin }) => {
   }
 
   return (
-    <main className="main">
+    <main className="main main--logout">
       <button className="button" onClick={logout}>
         Log out
       </button>
