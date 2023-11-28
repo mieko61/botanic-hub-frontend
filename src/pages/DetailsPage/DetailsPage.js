@@ -31,8 +31,9 @@ let Details = () => {
 
   let addPlant = async (plant) => {
     const apiBody = process.env.REACT_APP_BASE_URL;
-    console.log(plant);
     const newPlant = { plant_id: plant };
+    console.log(newPlant);
+
     try {
       await plantDetails;
 
@@ -80,13 +81,6 @@ let Details = () => {
             <div className="buttons-container--desktop">
               <button onClick={handleButtonClick} className="button">
                 Save to favorites
-                <FavoritesModal
-                  plantDetails={plantDetails}
-                  setIsOpen={setIsOpen}
-                  isOpen={isOpen}
-                  closeModal={flipValue}
-                  ariaHideApp={false}
-                />{" "}
               </button>
               <button
                 className="button button--secondary"
@@ -116,6 +110,13 @@ let Details = () => {
             Back to dashboard
           </button>
         </div>
+        <FavoritesModal
+          plantDetails={plantDetails}
+          setIsOpen={setIsOpen}
+          isOpen={isOpen}
+          closeModal={flipValue}
+          ariaHideApp={false}
+        />{" "}
       </section>
     </main>
   );
