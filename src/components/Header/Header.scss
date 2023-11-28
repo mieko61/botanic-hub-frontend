@@ -50,7 +50,7 @@
 
 .heart {
   @include desktop {
-    height: 1.75rem;
+    height: 1.5rem;
     width: auto;
   }
   &:hover,
@@ -61,7 +61,7 @@
 
 .settings {
   @include desktop {
-    height: 2rem;
+    height: 1.75rem;
     width: auto;
   }
   &:hover,
