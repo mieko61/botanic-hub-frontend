@@ -11,46 +11,52 @@ let Dashboard = () => {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
 
-  const login = async () => {
-    const apiBody = process.env.REACT_APP_BASE_URL;
-    const token = sessionStorage.getItem("token");
-
-    try {
-      const response = await axios.get(`${apiBody}/profile`, {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      });
-      setData(response.data);
-      console.log(response);
-    } catch (error) {
-      setFailedAuth(true);
-      console.log(error.message);
-    }
-    setIsLoading(false);
-  };
-
   useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    if (!token) {
+      // return;
+      navigate("/");
+    }
+
+    const login = async () => {
+      const apiBody = process.env.REACT_APP_BASE_URL;
+
+      try {
+        const response = await axios.get(`${apiBody}/profile`, {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        });
+        setData(response.data);
+        console.log("user", response.data);
+      } catch (error) {
+        setFailedAuth(true);
+        console.log(error.message);
+      }
+      setIsLoading(false);
+    };
+
     login();
   }, []);
 
   const handleGetStarted = () => {
-    navigate(`/categories?userId=${data.id}`);
+    navigate(`/categories`);
   };
 
-  if (failedAuth) {
-    return <LoginPrompt />;
-  }
+  // if (failedAuth) {
+  //   navigate("/");
+  // }
 
   if (isLoading) {
-    return <main>Loading...</main>;
+    return <main className="main">Loading...</main>;
   }
 
   return (
     <main className="main main--dashboard">
       <section className="dashboard-container">
-        {failedAuth && <div>You must log in to see this page.</div>}
-        <h1 className="dashboard__header">Hello, {data.name}</h1>
+        <h1 className="dashboard__header">
+          {/* Hello, {data.name ? data.name : ""} */}
+        </h1>
         <img src={plantDrawing} className="dashboard__image" />
         <h2 className="dashboard__body">
           Discover the power of plants and the benefits of herbal medicine.

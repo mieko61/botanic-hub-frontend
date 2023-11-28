@@ -1,14 +1,12 @@
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import arrowIcon from "../../assets/images/icons/back.svg";
 import axios from "axios";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 let Categories = () => {
   const [allCategories, setAllCategories] = useState();
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const userId = searchParams.get("userId");
 
   useEffect(() => {
     const apiBody = process.env.REACT_APP_BASE_URL;
@@ -35,13 +33,7 @@ let Categories = () => {
         </div>
         <div className="cards-container">
           {allCategories.map((category) => {
-            return (
-              <CategoryCard
-                key={category.id}
-                category={category}
-                userId={userId}
-              />
-            );
+            return <CategoryCard key={category.id} category={category} />;
           })}
         </div>
       </section>

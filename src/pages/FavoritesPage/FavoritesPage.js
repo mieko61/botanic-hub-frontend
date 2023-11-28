@@ -1,28 +1,33 @@
-import { useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import FavoritesCard from "../../components/FavoritesCard/FavoritesCard";
 import LoginPrompt from "../../components/LoginPrompt/LoginPrompt";
 
-let FavoritesPage = ({ isLoggedin }) => {
+let FavoritesPage = () => {
   const [favorites, setFavorites] = useState();
-  const [searchParams] = useSearchParams();
-  const user = searchParams.get("userId");
-  console.log(user);
-  useEffect(() => {
-    const apiBody = process.env.REACT_APP_BASE_URL;
-    const renderFavorites = async () => {
-      let response = await axios.get(`${apiBody}/favorites?userId=4`);
 
-      // let response = await axios.get(`${apiBody}/favorites?userId=${user}`);
+  // console.log(user);
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    if (!token) return;
+    const apiBody = process.env.REACT_APP_BASE_URL;
+
+    const renderFavorites = async () => {
+      let response = await axios.get(`${apiBody}/favorites?`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+
       setFavorites(response.data);
-      console.log(response.data);
     };
     renderFavorites();
   }, []);
-  if (!favorites) return null;
 
-  if (!isLoggedin) return <LoginPrompt />;
+  if (!favorites)
+    return (
+      <main className="main main--center">You don't have any favorites</main>
+    );
 
   return (
     <main className="main">
@@ -32,13 +37,7 @@ let FavoritesPage = ({ isLoggedin }) => {
         </div>
         <div className="page-results">
           {favorites.map((favorite) => {
-            return (
-              <FavoritesCard
-                key={favorite.id}
-                favorite={favorite}
-                user={user}
-              />
-            );
+            return <FavoritesCard key={favorite.id} favorite={favorite} />;
           })}
         </div>
       </section>

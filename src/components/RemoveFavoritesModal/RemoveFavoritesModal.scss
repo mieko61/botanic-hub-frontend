@@ -1,0 +1,43 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+//Background outside of the modal
+.ReactModal__Overlay--after-open {
+  background-color: rgba($color: $yellow, $alpha: 0.5) !important;
+  z-index: 2;
+}
+
+//White background of modal
+.ReactModal__Content.ReactModal__Content--after-open {
+  width: 80vw;
+  height: 20vh;
+  top: 50% !important;
+  // padding: 0 1rem !important;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-color: white !important;
+
+  @include desktop {
+    width: 25vw;
+  }
+}
+
+.modal {
+  &-button {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &-text {
+    padding: 0.75rem;
+    text-align: center;
+    line-height: 1.5rem;
+
+    @include desktop {
+      line-height: 2rem;
+    }
+  }
+}

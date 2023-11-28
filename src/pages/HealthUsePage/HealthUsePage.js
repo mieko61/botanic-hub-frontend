@@ -9,7 +9,6 @@ let HealthUse = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category");
-  const userId = searchParams.get("userId");
 
   useEffect(() => {
     const apiBody = process.env.REACT_APP_BASE_URL;
@@ -43,7 +42,6 @@ let HealthUse = () => {
                 key={healthUse.id}
                 healthUse={healthUse}
                 category={category}
-                userId={userId}
               />
             );
           })}

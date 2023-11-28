@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
-let CategoryCard = ({ category, userId }) => {
+let CategoryCard = ({ category }) => {
   const navigate = useNavigate();
   const handleRenderHealthUse = () => {
-    navigate(`/healthUse?category=${category.id}&userId=${userId}`);
+    navigate(`/healthUse?category=${category.id}`);
   };
   return (
     <div className="card" onClick={handleRenderHealthUse}>

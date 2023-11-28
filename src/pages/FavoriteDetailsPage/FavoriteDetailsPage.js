@@ -1,8 +1,7 @@
-import "./DetailsPage.scss";
 import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import FavoritesModal from "../../components/FavoritesModal/FavoritesModal";
+import RemoveFavoritesModal from "../../components/RemoveFavoritesModal/RemoveFavoritesModal";
 import arrowIcon from "../../assets/images/icons/back.svg";
 
 let Details = () => {
@@ -27,23 +26,25 @@ let Details = () => {
     renderplantDetails();
   }, []);
 
-  let addPlant = async (plant) => {
+  let removePlant = async (plant) => {
     const apiBody = process.env.REACT_APP_BASE_URL;
-    const newPlant = { plant_id: plant };
+    const plantToRemove = { plant_id: plant };
+    console.log(plantToRemove);
     const token = sessionStorage.getItem("token");
-    if (!token) return "you're not logged in";
 
+    if (!token) return "you're not logged in";
     try {
       await plantDetails;
+      console.log("token", token);
 
-      let response = await axios.post(`${apiBody}/favorites`, newPlant, {
+      let response = await axios.delete(`${apiBody}/favorites`, plantToRemove, {
         headers: {
           Authorization: "Bearer " + token,
         },
       });
       setUpdatedFavorites();
     } catch (error) {
-      console.error("Error adding plant", error);
+      console.error("Error removing plant", error);
     }
   };
 
@@ -55,7 +56,7 @@ let Details = () => {
 
   const handleButtonClick = () => {
     flipValue();
-    addPlant(plant);
+    removePlant(plant);
   };
   return (
     <main className="main">
@@ -80,7 +81,7 @@ let Details = () => {
             <p className="plant-details_body">{plantDetails.description}</p>
             <div className="buttons-container--desktop">
               <button onClick={handleButtonClick} className="button">
-                Save to favorites
+                Remove from favorites
               </button>
               <button
                 className="button button--secondary"
@@ -93,7 +94,7 @@ let Details = () => {
         </div>
         <div className="buttons-container--mobile">
           <button onClick={handleButtonClick} className="button">
-            Save to favorites
+            Remove from favorites
           </button>
           <button
             className="button button--secondary"
@@ -102,7 +103,7 @@ let Details = () => {
             Back to dashboard
           </button>
         </div>
-        <FavoritesModal
+        <RemoveFavoritesModal
           plantDetails={plantDetails}
           setIsOpen={setIsOpen}
           isOpen={isOpen}

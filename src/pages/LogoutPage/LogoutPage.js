@@ -4,15 +4,17 @@ import { useEffect, useState } from "react";
 
 let SettingsPage = ({ isLoggedin }) => {
   const navigate = useNavigate();
-  // const [data, setData] = useState(null);
-  // const [failedAuth, setFailedAuth] = useState(false);
 
-  const logout = () => {
-    sessionStorage.removeItem("token");
-    // setData(null);
-    // setFailedAuth(true);
-    navigate("/login");
-  };
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    if (!token) return;
+    const apiBody = process.env.REACT_APP_BASE_URL;
+
+    const logout = () => {
+      sessionStorage.removeItem(token);
+      navigate("/login");
+    };
+  }, []);
 
   const handleLogin = () => {
     navigate("/login");
@@ -34,7 +36,7 @@ let SettingsPage = ({ isLoggedin }) => {
   }
 
   return (
-    <main className="main main--logout">
+    <main className="main main--center">
       <button className="button" onClick={logout}>
         Log out
       </button>

@@ -7,6 +7,7 @@ import Categories from "./pages/CategoriesPage/CategoriesPage";
 import HealthUse from "./pages/HealthUsePage/HealthUsePage";
 import Results from "./pages/ResultsPage/ResultsPage";
 import DetailsPage from "./pages/DetailsPage/DetailsPage";
+import FavoriteDetailsPage from "./pages/FavoriteDetailsPage/FavoriteDetailsPage";
 import Favorites from "./pages/FavoritesPage/FavoritesPage";
 import FavoritesCard from "./components/FavoritesCard/FavoritesCard";
 import Signup from "./pages/SignupPage/SignupPage";
@@ -45,6 +46,10 @@ function App() {
           <Route path="/healthUse" element={<HealthUse />} />
           <Route path="/results" element={<Results />} />
           <Route path="/plantdetails" element={<DetailsPage />} />
+          <Route
+            path="/favoriteplantdetails"
+            element={<FavoriteDetailsPage />}
+          />
         </Routes>
       </Router>
     </div>
