@@ -9,20 +9,27 @@ const Header = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const userId = searchParams.get("userId");
+  console.log(userId);
 
   const handleFavorites = () => {
-    navigate("/favorites");
+    navigate(`/favorites?userId=${userId}`);
     // navigate(`/favorites?userId=${userId}`);
+  };
+
+  const handleDashboard = () => {
+    // navigate(`/?userId=${userId}`);
+    navigate("/");
+    // console.log(userId);
   };
 
   return (
     <header className="header-container">
       <div className="header">
-        <Link to="/">
+        <NavLink to={handleDashboard}>
           <img src={logo} alt="logo" className="header__logo" />
-        </Link>
+        </NavLink>
         <div className="header__nav">
-          <NavLink to={"/favorites"}>
+          <NavLink to={handleFavorites}>
             <Heart className="heart" />
           </NavLink>
           <NavLink to={"/logout"}>

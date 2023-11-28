@@ -17,11 +17,10 @@ let Login = ({ setIsLoggedIn }) => {
         email: event.target.email.value,
         password: event.target.password.value,
       });
-      console.log(response.data);
 
       sessionStorage.setItem("token", response.data.token);
       setIsLoggedIn(true);
-      navigate(`/?userId=${response.data.id}`);
+      navigate(`/?userId=${response.data.userId}`);
     } catch (error) {
       setError(error.message);
       console.log(error);

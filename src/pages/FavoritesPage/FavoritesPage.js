@@ -7,16 +7,16 @@ import LoginPrompt from "../../components/LoginPrompt/LoginPrompt";
 let FavoritesPage = ({ isLoggedin }) => {
   const [favorites, setFavorites] = useState();
   const [searchParams] = useSearchParams();
-  const user = searchParams.get("user");
-
+  const user = searchParams.get("userId");
+  console.log(user);
   useEffect(() => {
     const apiBody = process.env.REACT_APP_BASE_URL;
     const renderFavorites = async () => {
-      let response = await axios.get(`${apiBody}/favorites?user=4`);
+      // let response = await axios.get(`${apiBody}/favorites?user=4`);
 
-      // let response = await axios.get(`${apiBody}/favorites?user=${user}`);
+      let response = await axios.get(`${apiBody}/favorites?userId=${user}`);
       setFavorites(response.data);
-      // console.log(user);
+      console.log(user);
       console.log(response.data);
     };
     renderFavorites();
