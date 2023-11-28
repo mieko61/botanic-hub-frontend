@@ -3,6 +3,11 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/global" as *;
 
+.main--dashboard {
+  display: flex;
+  justify-content: center;
+}
+
 .dashboard {
   &-container {
     width: auto;
@@ -20,9 +25,14 @@
     padding-bottom: 3rem;
     letter-spacing: 0.16rem;
 
+    @include tablet {
+      position: absolute;
+      top: 18rem;
+    }
+
     @include desktop {
       position: absolute;
-      top: 14rem;
+      top: 16rem;
     }
 
     &--fail {
@@ -39,6 +49,14 @@
     position: relative;
     top: 16rem;
     right: 0;
+
+    @include tablet {
+      top: 22rem;
+    }
+
+    @include desktop {
+      top: 20rem;
+    }
   }
 
   &__image {
@@ -47,6 +65,10 @@
     position: absolute;
     left: 3rem;
     top: 3rem;
+
+    @include tablet {
+      left: 20rem;
+    }
 
     @include desktop {
       left: 24rem;
@@ -58,4 +80,8 @@
   position: absolute;
   bottom: -20rem;
   left: 1rem;
+
+  @include tablet {
+    bottom: -26rem;
+  }
 }

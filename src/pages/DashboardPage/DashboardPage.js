@@ -3,19 +3,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import plantDrawing from "../../assets/images/plant.png";
+import LoginPrompt from "../../components/LoginPrompt/LoginPrompt";
 
 let Dashboard = () => {
   const [failedAuth, setFailedAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
   const navigate = useNavigate();
-
-  const logout = () => {
-    sessionStorage.removeItem("token");
-    setData(null);
-    setFailedAuth(true);
-    navigate("/login");
-  };
 
   const login = async () => {
     const apiBody = process.env.REACT_APP_BASE_URL;
@@ -40,27 +34,12 @@ let Dashboard = () => {
     login();
   }, []);
 
-  const handleLogin = () => {
-    navigate("/login");
-  };
-
   const handleGetStarted = () => {
     navigate(`/categories?userId=${data.id}`);
   };
 
   if (failedAuth) {
-    return (
-      <main className="main">
-        <section>
-          <h2 className="dashboard__header--fail">
-            You must log in to see this page
-          </h2>
-          <button className="button" onClick={handleLogin}>
-            Log in
-          </button>
-        </section>
-      </main>
-    );
+    return <LoginPrompt />;
   }
 
   if (isLoading) {
@@ -68,7 +47,7 @@ let Dashboard = () => {
   }
 
   return (
-    <main className="main">
+    <main className="main main--dashboard">
       <section className="dashboard-container">
         {failedAuth && <div>You must log in to see this page.</div>}
         <h1 className="dashboard__header">Hello, {data.name}</h1>

@@ -31,8 +31,9 @@ let Details = () => {
 
   let addPlant = async (plant) => {
     const apiBody = process.env.REACT_APP_BASE_URL;
-    console.log(plant);
     const newPlant = { plant_id: plant };
+    console.log(newPlant);
+
     try {
       await plantDetails;
 
@@ -108,12 +109,6 @@ let Details = () => {
             Back to dashboard
           </button>
         </div>
-        <FavoritesModal
-          plantDetails={plantDetails}
-          isOpen={isOpen}
-          closeModal={flipValue}
-          ariaHideApp={false}
-        />{" "}
       </section>
     </main>
   );

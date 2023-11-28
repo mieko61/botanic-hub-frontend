@@ -32,12 +32,11 @@
   }
 
   &-text {
-    padding-top: 1rem;
+    padding: 0.75rem;
     text-align: center;
     line-height: 1.5rem;
 
     @include desktop {
-      padding-top: 2.5rem;
       line-height: 2rem;
     }
   }

@@ -1,12 +1,5 @@
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-  useNavigate,
-  Link,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Login from "./pages/LoginPage/LoginPage";
 import Dashboard from "./pages/DashboardPage/DashboardPage";
@@ -17,12 +10,19 @@ import DetailsPage from "./pages/DetailsPage/DetailsPage";
 import Favorites from "./pages/FavoritesPage/FavoritesPage";
 import FavoritesCard from "./components/FavoritesCard/FavoritesCard";
 import Signup from "./pages/SignupPage/SignupPage";
-import Settings from "./pages/SettingsPage/SettingsPage";
+import Logout from "./pages/LogoutPage/LogoutPage";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [token, setToken] = useState(sessionStorage.getItem("token") || false);
+  const [isLoggedin, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   return (
     <div className="App">
@@ -30,15 +30,18 @@ function App() {
         <Header />
         <Routes>
           <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<Settings />} />
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/favorites/plant" element={<FavoritesCard />} />
           <Route
-            path="/categories"
-            element={<Categories setSelectedCategory={setSelectedCategory} />}
+            path="/login"
+            element={<Login setIsLoggedIn={setIsLoggedIn} />}
           />
+          <Route path="/logout" element={<Logout isLoggedin={isLoggedin} />} />
+          <Route path="/" element={<Dashboard />} />
+          <Route
+            path="/favorites"
+            element={<Favorites isLoggedin={isLoggedin} />}
+          />
+          <Route path="/favorites/plant" element={<FavoritesCard />} />
+          <Route path="/categories" element={<Categories />} />
           <Route path="/healthUse" element={<HealthUse />} />
           <Route path="/results" element={<Results />} />
           <Route path="/plantdetails" element={<DetailsPage />} />
