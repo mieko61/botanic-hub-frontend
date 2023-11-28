@@ -12,11 +12,10 @@ let FavoritesPage = ({ isLoggedin }) => {
   useEffect(() => {
     const apiBody = process.env.REACT_APP_BASE_URL;
     const renderFavorites = async () => {
-      // let response = await axios.get(`${apiBody}/favorites?user=4`);
+      let response = await axios.get(`${apiBody}/favorites?userId=4`);
 
-      let response = await axios.get(`${apiBody}/favorites?userId=${user}`);
+      // let response = await axios.get(`${apiBody}/favorites?userId=${user}`);
       setFavorites(response.data);
-      console.log(user);
       console.log(response.data);
     };
     renderFavorites();

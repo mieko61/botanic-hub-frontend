@@ -33,7 +33,7 @@ let SettingsPage = ({ isLoggedin }) => {
   }
 
   return (
-    <main className="main">
+    <main className="main main--logout">
       <button className="button" onClick={logout}>
         Log out
       </button>

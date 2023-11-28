@@ -8,28 +8,29 @@ import { ReactComponent as Settings } from "../../assets/images/icons/user.svg";
 const Header = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const userId = searchParams.get("userId");
+  // const userId = searchParams.get("userId");
+  const userId = "6";
+
   console.log(userId);
 
   const handleFavorites = () => {
-    navigate(`/favorites?userId=${userId}`);
+    navigate("/favorites", { state: { userId } });
     // navigate(`/favorites?userId=${userId}`);
   };
 
   const handleDashboard = () => {
     // navigate(`/?userId=${userId}`);
     navigate("/");
-    // console.log(userId);
   };
 
   return (
     <header className="header-container">
       <div className="header">
-        <NavLink to={handleDashboard}>
+        <NavLink to={"/"}>
           <img src={logo} alt="logo" className="header__logo" />
         </NavLink>
         <div className="header__nav">
-          <NavLink to={handleFavorites}>
+          <NavLink to={{ pathname: "/favorites", state: userId }}>
             <Heart className="heart" />
           </NavLink>
           <NavLink to={"/logout"}>
