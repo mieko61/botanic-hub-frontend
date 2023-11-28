@@ -15,6 +15,10 @@
     text-align: left;
     padding-bottom: 0.25rem;
     font-size: 12px;
+
+    @include desktop {
+      font-size: 14px;
+    }
   }
 
   &_box {

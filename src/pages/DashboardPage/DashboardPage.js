@@ -47,7 +47,7 @@ let Dashboard = () => {
   }
 
   return (
-    <main className="main">
+    <main className="main main--dashboard">
       <section className="dashboard-container">
         {failedAuth && <div>You must log in to see this page.</div>}
         <h1 className="dashboard__header">Hello, {data.name}</h1>
