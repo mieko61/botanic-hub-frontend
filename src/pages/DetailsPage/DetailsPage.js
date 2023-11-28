@@ -38,9 +38,10 @@ let Details = () => {
       await plantDetails;
 
       let response = await axios.post(
-        `${apiBody}/favorites?user=${userId}`,
+        `${apiBody}/favorites?userId=${userId}`,
         newPlant
       );
+      console.log(userId);
       setUpdatedFavorites();
     } catch (error) {
       console.error("Error adding plant", error);
