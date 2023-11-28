@@ -96,14 +96,6 @@ let Details = () => {
         <div className="buttons-container--mobile">
           <button onClick={handleButtonClick} className="button">
             Save to favorites
-            <FavoritesModal
-              plantDetails={plantDetails}
-              setIsOpen={setIsOpen}
-              isOpen={isOpen}
-              // onClick={addPlant}
-              // closeModal={closeModal}
-              ariaHideApp={false}
-            />{" "}
           </button>
           <button
             className="button button--secondary"
