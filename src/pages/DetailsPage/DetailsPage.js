@@ -99,6 +99,8 @@ let Details = () => {
               plantDetails={plantDetails}
               setIsOpen={setIsOpen}
               isOpen={isOpen}
+              // onClick={addPlant}
+              // closeModal={closeModal}
               ariaHideApp={false}
             />{" "}
           </button>
@@ -109,6 +111,13 @@ let Details = () => {
             Back to dashboard
           </button>
         </div>
+        <FavoritesModal
+          plantDetails={plantDetails}
+          setIsOpen={setIsOpen}
+          isOpen={isOpen}
+          closeModal={flipValue}
+          ariaHideApp={false}
+        />{" "}
       </section>
     </main>
   );
