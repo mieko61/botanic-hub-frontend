@@ -61,6 +61,12 @@ let Details = () => {
     flipValue();
     removePlant(plant);
   };
+
+  const handleCloseClick = () => {
+    flipValue();
+    navigate("/favorites");
+  };
+
   return (
     <main className="main">
       <section className="details-container">
@@ -110,7 +116,7 @@ let Details = () => {
           plantDetails={plantDetails}
           setIsOpen={setIsOpen}
           isOpen={isOpen}
-          closeModal={flipValue}
+          closeModal={handleCloseClick}
           ariaHideApp={false}
         />{" "}
       </section>
