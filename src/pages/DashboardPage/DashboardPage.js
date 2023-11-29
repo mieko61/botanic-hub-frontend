@@ -25,7 +25,6 @@ let Dashboard = () => {
             },
           });
           setData(response.data);
-          console.log("user", response.data);
         }
       } catch (error) {
         setFailedAuth(true);
