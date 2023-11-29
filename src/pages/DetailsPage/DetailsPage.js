@@ -31,17 +31,33 @@ let Details = () => {
     const apiBody = process.env.REACT_APP_BASE_URL;
     const newPlant = { plant_id: plant };
     const token = sessionStorage.getItem("token");
-    if (!token) return "you're not logged in";
+    if (!token) return "You're not logged in";
 
     try {
-      await plantDetails;
-
-      let response = await axios.post(`${apiBody}/favorites`, newPlant, {
+      let favoritesResponse = await axios.get(`${apiBody}/favorites`, {
         headers: {
           Authorization: "Bearer " + token,
         },
       });
-      setUpdatedFavorites();
+
+      let userFavorites = favoritesResponse.data;
+      let isNewPlantInFavorites = userFavorites.some(
+        (favorite) => favorite.plant_id == plant
+      );
+
+      // console.log("Type of plant_id:", typeof userFavorites[0]?.plant_id);
+
+      if (isNewPlantInFavorites) {
+        return "This plant is already saved in favorites";
+      } else {
+        await axios.post(`${apiBody}/favorites`, newPlant, {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        });
+        setUpdatedFavorites();
+        return true;
+      }
     } catch (error) {
       console.error("Error adding plant", error);
     }
@@ -53,9 +69,13 @@ let Details = () => {
     setIsOpen(!isOpen);
   }
 
-  const handleButtonClick = () => {
-    flipValue();
-    addPlant(plant);
+  const handleButtonClick = async () => {
+    const result = await addPlant(plant);
+    if (result === true) {
+      flipValue();
+    } else {
+      alert(result);
+    }
   };
   return (
     <main className="main">

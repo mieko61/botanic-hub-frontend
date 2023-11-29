@@ -11,16 +11,16 @@
 
 //White background of modal
 .ReactModal__Content.ReactModal__Content--after-open {
-  width: 80vw;
-  height: 20vh;
+  width: 75vw;
+  height: auto;
   top: 50% !important;
-  // padding: 0 1rem !important;
   position: fixed;
   display: flex;
   flex-direction: column;
   background-color: white !important;
+  justify-content: center;
 
-  @include desktop {
+  @include tablet {
     width: 25vw;
   }
 }
@@ -29,15 +29,19 @@
   &-button {
     display: flex;
     justify-content: flex-end;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
   }
 
   &-text {
-    padding: 0.75rem;
     text-align: center;
     line-height: 1.5rem;
+    padding: 2rem 0;
 
     @include desktop {
       line-height: 2rem;
+      padding: 2.5rem;
     }
   }
 }

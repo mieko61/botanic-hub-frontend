@@ -26,7 +26,9 @@ let FavoritesPage = () => {
 
   if (!favorites)
     return (
-      <main className="main main--center">You don't have any favorites</main>
+      <main className="main main--center">
+        <h2>You don't have any favorites yet</h2>
+      </main>
     );
 
   return (
