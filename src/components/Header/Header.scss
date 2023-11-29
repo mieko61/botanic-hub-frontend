@@ -32,9 +32,9 @@
   &__nav {
     display: flex;
     width: 20%;
+    justify-content: flex-end;
 
     @include desktop {
-      justify-content: flex-end;
       align-items: center;
     }
 
@@ -43,6 +43,14 @@
 
       @include desktop {
         padding-left: 1rem;
+      }
+
+      &.active {
+        fill: $peach;
+      }
+
+      &:hover {
+        fill: $peach;
       }
     }
   }
@@ -53,19 +61,14 @@
     height: 1.5rem;
     width: auto;
   }
-  &:hover,
-  :active {
-    fill: #ea9e8d;
-  }
+  // &:hover {
+  //   fill: $peach;
+  // }
 }
 
 .settings {
   @include desktop {
     height: 1.75rem;
     width: auto;
-  }
-  &:hover,
-  :active {
-    fill: #ea9e8d;
   }
 }

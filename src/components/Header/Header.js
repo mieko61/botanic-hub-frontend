@@ -13,7 +13,10 @@ const Header = () => {
           <img src={logo} alt="logo" className="header__logo" />
         </NavLink>
         <div className="header__nav">
-          <NavLink to={"/favorites"}>
+          <NavLink
+            to={"/favorites"}
+            className={({ isActive }) => (isActive ? "active" : "inactive")}
+          >
             <Heart className="heart" />
           </NavLink>
           <NavLink to={"/logout"}>
