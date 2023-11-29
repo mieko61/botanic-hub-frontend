@@ -28,8 +28,8 @@ let Details = () => {
 
   let removePlant = async (plant) => {
     const apiBody = process.env.REACT_APP_BASE_URL;
-    const plantToRemove = { plant_id: plant };
-    // console.log(plantToRemove);
+    const plantToRemove = plant;
+
     const token = sessionStorage.getItem("token");
 
     if (!token) return "you're not logged in";
@@ -37,11 +37,14 @@ let Details = () => {
       await plantDetails;
       console.log("token", token);
 
-      let response = await axios.delete(`${apiBody}/favorites`, plantToRemove, {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      });
+      let response = await axios.delete(
+        `${apiBody}/favorites?plant_id=${plant}`,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
       setUpdatedFavorites();
     } catch (error) {
       console.error("Error removing plant", error);
@@ -58,6 +61,12 @@ let Details = () => {
     flipValue();
     removePlant(plant);
   };
+
+  const handleCloseClick = () => {
+    flipValue();
+    navigate("/favorites");
+  };
+
   return (
     <main className="main">
       <section className="details-container">
@@ -107,7 +116,7 @@ let Details = () => {
           plantDetails={plantDetails}
           setIsOpen={setIsOpen}
           isOpen={isOpen}
-          closeModal={flipValue}
+          closeModal={handleCloseClick}
           ariaHideApp={false}
         />{" "}
       </section>
