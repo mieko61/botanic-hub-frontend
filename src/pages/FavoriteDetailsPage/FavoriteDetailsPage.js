@@ -28,14 +28,14 @@ let Details = () => {
 
   let removePlant = async (plant) => {
     const apiBody = process.env.REACT_APP_BASE_URL;
-    const plantToRemove = { plant_id: plant };
-    // console.log(plantToRemove);
+    const plantToRemove = plant;
+
     const token = sessionStorage.getItem("token");
 
     if (!token) return "you're not logged in";
     try {
       await plantDetails;
-      console.log("token", token);
+      // console.log("token", token);
 
       let response = await axios.delete(`${apiBody}/favorites`, plantToRemove, {
         headers: {
