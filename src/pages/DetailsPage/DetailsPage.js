@@ -33,12 +33,9 @@ let Details = () => {
         `${apiBody}/plantdetails/plantuses?plant=${plant}`
       );
       setPlantUses(response.data);
-      console.log("plant uses:", response.data[0].healthUse);
     };
     renderplantUses();
   }, []);
-
-  useEffect(() => {}, []);
 
   let addPlant = async (plant) => {
     const apiBody = process.env.REACT_APP_BASE_URL;
@@ -110,11 +107,14 @@ let Details = () => {
             <h3 className="plant-details_title">{plantDetails.name}</h3>
             <p className="plant-details_body">{plantDetails.description}</p>
             <article className="other-uses">
-              <p className="other-uses_title">Also good for</p>
+              <p className="other-uses_title">Also good for:</p>
               <ul className="other-uses_list">
                 {plantUses.map((use) => {
                   return (
-                    <PlantUsePill key={use.id} healthUse={use.healthUse} />
+                    <PlantUsePill
+                      key={use.healthUse_id}
+                      healthUse={use.healthUse}
+                    />
                   );
                 })}
               </ul>
