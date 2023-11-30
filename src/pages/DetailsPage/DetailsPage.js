@@ -12,6 +12,7 @@ let Details = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const plant = searchParams.get("plant");
+  const [error, setError] = useState(null);
 
   let [isOpen, setIsOpen] = useState(false);
   const [updatedFavorites, setUpdatedFavorites] = useState();
@@ -81,8 +82,11 @@ let Details = () => {
     const result = await addPlant(plant);
     if (result === true) {
       flipValue();
+      setError(null);
     } else {
-      alert(result);
+      console.log(result);
+      setError(result);
+      // alert(result);
     }
   };
   return (
@@ -119,10 +123,16 @@ let Details = () => {
                 })}
               </ul>
             </article>
+            {error && (
+              <div className="error">
+                <p>Error: {error}</p>
+              </div>
+            )}
             <div className="buttons-container--desktop">
               <button onClick={handleButtonClick} className="button">
                 Save to favorites
               </button>
+
               <button
                 className="button button--secondary"
                 onClick={handleReturnHome}
