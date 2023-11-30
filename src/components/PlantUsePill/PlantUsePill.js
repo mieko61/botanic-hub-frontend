@@ -1,8 +1,11 @@
-let PlantUsePill = () => {
-  return;
-  <li>
-    <button></button>
-  </li>;
+import "./PlantUsePill.scss";
+
+let PlantUsePill = ({ healthUse }) => {
+  return (
+    <li>
+      <div className="pill">{healthUse}</div>
+    </li>
+  );
 };
 
 export default PlantUsePill;

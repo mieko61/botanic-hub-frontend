@@ -8,7 +8,7 @@ import PlantUsePill from "../../components/PlantUsePill/PlantUsePill";
 
 let Details = () => {
   const [plantDetails, setPlantDetails] = useState();
-  const [plantUses, setPlantUses] = useState();
+  const [plantUses, setPlantUses] = useState([]);
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const plant = searchParams.get("plant");
@@ -27,19 +27,18 @@ let Details = () => {
       setPlantDetails(response.data);
     };
     renderplantDetails();
-  }, []);
 
-  useEffect(() => {
-    const apiBody = process.env.REACT_APP_BASE_URL;
     const renderplantUses = async () => {
       let response = await axios.get(
         `${apiBody}/plantdetails/plantuses?plant=${plant}`
       );
       setPlantUses(response.data);
-      console.log("plant uses:", response.data);
+      console.log("plant uses:", response.data[0].healthUse);
     };
     renderplantUses();
   }, []);
+
+  useEffect(() => {}, []);
 
   let addPlant = async (plant) => {
     const apiBody = process.env.REACT_APP_BASE_URL;
@@ -110,17 +109,16 @@ let Details = () => {
           <div className="plant-details_info">
             <h3 className="plant-details_title">{plantDetails.name}</h3>
             <p className="plant-details_body">{plantDetails.description}</p>
-            <ul>
-              {/* {plantUses.map((use) => {
-                return (
-                  <PlantUsePill
-                    key={use.id}
-                    // healthUse={healthUse.name}
-                    id={use.id}
-                  />
-                );
-              })} */}
-            </ul>
+            <article className="other-uses">
+              <p className="other-uses_title">Also good for</p>
+              <ul className="other-uses_list">
+                {plantUses.map((use) => {
+                  return (
+                    <PlantUsePill key={use.id} healthUse={use.healthUse} />
+                  );
+                })}
+              </ul>
+            </article>
             <div className="buttons-container--desktop">
               <button onClick={handleButtonClick} className="button">
                 Save to favorites

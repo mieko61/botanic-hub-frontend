@@ -66,6 +66,7 @@
   &_body {
     border-radius: 20px;
     line-height: 1.25rem;
+    padding-bottom: 1.5rem;
 
     @include desktop {
       padding: 0 0 1rem 3rem;
@@ -78,4 +79,18 @@
   display: flex;
   justify-content: flex-end;
   padding: 2rem;
+}
+
+.other-uses {
+  &_title {
+    font-weight: 700;
+    padding-bottom: 0.75rem;
+  }
+
+  &_list {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
