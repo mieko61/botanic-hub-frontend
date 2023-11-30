@@ -22,8 +22,7 @@ let Login = ({ setIsLoggedIn }) => {
       setIsLoggedIn(true);
       navigate(`/?userId=${response.data.userId}`);
     } catch (error) {
-      setError(error.message);
-      console.log(error);
+      setError(error.response.data);
     }
   };
 
@@ -35,7 +34,11 @@ let Login = ({ setIsLoggedIn }) => {
           <Input type="text" name="email" label="Email" />
           <Input type="password" name="password" label="Password" />
           <button className="button button-login">Log in</button>
-          {error && <div>{error}</div>}
+          {error && (
+            <div className="error">
+              <p>{error}</p>
+            </div>
+          )}
         </form>
         <p className="signup-text">
           Need an account?{" "}

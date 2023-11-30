@@ -59,8 +59,6 @@ let Details = () => {
         (favorite) => favorite.plant_id == plant
       );
 
-      // console.log("Type of plant_id:", typeof userFavorites[0]?.plant_id);
-
       if (isNewPlantInFavorites) {
         return "This plant is already saved in favorites";
       } else {
