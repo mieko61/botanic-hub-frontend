@@ -39,18 +39,14 @@
     }
 
     & a {
-      padding-left: 0.5rem;
+      margin-left: 0.5rem;
 
       @include desktop {
-        padding-left: 1rem;
+        margin-left: 1rem;
       }
 
       &.active {
-        fill: $peach;
-      }
-
-      &:hover {
-        fill: $peach;
+        border-bottom: 0.25rem solid $peach;
       }
     }
   }
@@ -61,14 +57,18 @@
     height: 1.5rem;
     width: auto;
   }
-  // &:hover {
-  //   fill: $peach;
-  // }
+  &:hover {
+    fill: $peach;
+  }
 }
 
 .settings {
   @include desktop {
     height: 1.75rem;
     width: auto;
+  }
+
+  &:hover {
+    fill: $peach;
   }
 }
