@@ -14,10 +14,10 @@
   &_label {
     text-align: left;
     padding-bottom: 0.25rem;
-    font-size: 12px;
+    font-size: 0.75rem;
 
     @include desktop {
-      font-size: 14px;
+      font-size: 0.875rem;
     }
   }
 

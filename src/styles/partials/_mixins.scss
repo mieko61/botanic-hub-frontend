@@ -15,23 +15,23 @@
 }
 
 .button {
-  border-radius: 24px;
+  border-radius: 1.5rem;
   padding: 0.5rem 1.5rem;
   background-color: $peach;
   color: $yellow;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-family: "DMSans";
   font-weight: 700;
   cursor: pointer;
-  border: 2px solid $peach;
+  border: 0.125rem solid $peach;
 
   @include desktop {
-    font-size: 16px;
+    font-size: 1rem;
     padding: 0.75rem 1.75rem;
   }
 
   &:hover {
-    border: 2px solid $red;
+    border: 0.125rem solid $red;
     background-color: $red;
   }
 
@@ -39,7 +39,7 @@
     margin-top: 1rem;
     background-color: $yellow;
     color: $peach;
-    border: 2px solid $peach;
+    border: 0.125rem solid $peach;
 
     @include desktop {
       margin: 0 0 0 2rem;
@@ -56,7 +56,7 @@
   display: flex;
   justify-content: flex-start;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid $black;
+  border-bottom: 0.125rem solid $black;
   align-items: center;
 
   &__arrow {
