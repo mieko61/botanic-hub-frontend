@@ -28,7 +28,6 @@ let Dashboard = () => {
         }
       } catch (error) {
         setFailedAuth(true);
-        console.log(error.message);
       }
       setIsLoading(false);
     };

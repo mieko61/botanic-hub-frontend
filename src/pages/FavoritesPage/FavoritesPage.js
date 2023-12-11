@@ -6,7 +6,6 @@ import LoginPrompt from "../../components/LoginPrompt/LoginPrompt";
 let FavoritesPage = () => {
   const [favorites, setFavorites] = useState();
 
-  // console.log(user);
   useEffect(() => {
     const token = sessionStorage.getItem("token");
     if (!token) return;

@@ -35,7 +35,6 @@ let Details = () => {
     if (!token) return "you're not logged in";
     try {
       await plantDetails;
-      console.log("token", token);
 
       let response = await axios.delete(
         `${apiBody}/favorites?plant_id=${plant}`,
