@@ -115,6 +115,9 @@ let Details = () => {
           <div className="plant-details_info">
             <h3 className="plant-details_title">{plantDetails.name}</h3>
             <p className="plant-details_body">{plantDetails.description}</p>
+            <p className="plant-details_ref">
+              © Memorial Sloan Kettering Cancer Center
+            </p>
             <article className="other-uses">
               <p className="other-uses_title">Also good for:</p>
               <ul className="other-uses_list">

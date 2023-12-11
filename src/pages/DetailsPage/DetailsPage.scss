@@ -65,14 +65,22 @@
 
   &_body {
     line-height: 1.25rem;
-    padding-bottom: 1rem;
+
+    @include desktop {
+      line-height: 2rem;
+    }
+  }
+
+  &_ref {
+    font-size: 0.625rem;
+    padding: 1rem 0 2rem;
     margin-bottom: 1rem;
     border-bottom: 0.0938rem solid $black;
 
     @include desktop {
-      padding-bottom: 2rem;
+      font-size: 0.875rem;
+      padding: 1rem 0 3rem;
       margin-bottom: 1rem;
-      line-height: 2rem;
     }
   }
 }
