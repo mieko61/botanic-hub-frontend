@@ -20,8 +20,7 @@ let Signup = () => {
 
       navigate("/login");
     } catch (error) {
-      console.error(error);
-      setError(error.message);
+      setError(error.response.data);
     }
   };
 
@@ -34,7 +33,11 @@ let Signup = () => {
           <Input type="text" name="email" label="Email" />
           <Input type="password" name="password" label="Password" />
           <button className="button button-login">Sign up</button>
-          {error && <div>{error}</div>}
+          {error && (
+            <div className="error">
+              <p>{error}</p>
+            </div>
+          )}
         </form>
         <p className="signup-text">
           Already have an account?{" "}
