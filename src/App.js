@@ -12,6 +12,7 @@ import Favorites from "./pages/FavoritesPage/FavoritesPage";
 import FavoritesCard from "./components/FavoritesCard/FavoritesCard";
 import Signup from "./pages/SignupPage/SignupPage";
 import Logout from "./pages/LogoutPage/LogoutPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 import { useState, useEffect } from "react";
 
@@ -50,6 +51,7 @@ function App() {
             path="/favoriteplantdetails"
             element={<FavoriteDetailsPage />}
           />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Router>
     </div>

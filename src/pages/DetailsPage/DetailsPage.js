@@ -23,11 +23,17 @@ let Details = () => {
 
   useEffect(() => {
     const apiBody = process.env.REACT_APP_BASE_URL;
-    const renderplantDetails = async () => {
-      let response = await axios.get(`${apiBody}/plantdetails?plant=${plant}`);
-      setPlantDetails(response.data);
-    };
-    renderplantDetails();
+    try {
+      const renderplantDetails = async () => {
+        let response = await axios.get(
+          `${apiBody}/plantdetails?plant=${plant}`
+        );
+        setPlantDetails(response.data);
+      };
+      renderplantDetails();
+    } catch (error) {
+      console.error("Error rendering plant", error.response || error);
+    }
 
     const renderplantUses = async () => {
       let response = await axios.get(
@@ -86,7 +92,6 @@ let Details = () => {
     } else {
       console.log(result);
       setError(result);
-      // alert(result);
     }
   };
   return (
