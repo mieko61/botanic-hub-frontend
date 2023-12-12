@@ -1,6 +1,6 @@
-# BOTANIC HUB - front end
+# BOTANIC HUB 🌿 - front end
 
-This app is a resource for medicinal herbs and plants. It allows users to learn about their health benefits and how they can be used to treat specific symptoms.
+This app is an informational resource for medicinal herbs and plants. It allows users to select a specific health concern and returns a list of plants that could be used as treatment.
 
 ## Back end - git clone
 
