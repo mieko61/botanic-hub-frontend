@@ -1,6 +1,6 @@
 # BOTANIC HUB 🌿 - client
 
-This responsive app is an informational resource for medicinal herbs and plants. It allows users to select a specific health concern and returns a list of plants that could be used as treatment.
+This responsive app was born from my love for tea and interest in natural medicine. The idea eventually evolved to focus on plants and their medicinal benefits. Thus Botanic Hub is an informational resource for medicinal herbs and plants. It allows users to look for a specific health concern and returns a list of plants that could be used as treatment. Upon selecting a specific plant, the app renders its description, image, and other health uses.
 
 ## Server
 
@@ -86,30 +86,30 @@ import axios from "axios";
 
 ## PREVIEW
 
-###Log in
+### Log in
 
 ![log in](/src/assets/images/login.png)
 
-###Homepage
+### Homepage
 
 ![homepage](/src/assets/images/homepage.png)
 
-###Category selection
+### Category selection
 
 ![categories](/src/assets/images/categories.png)
 
-###Plant results
+### Plant results
 
 ![results](/src/assets/images/results.png)
 
-###Plant details with option to "Save to favorites"
+### Plant details with option to "Save to favorites"
 
 ![plant details](/src/assets/images/plant-details.png)
 
-###Save plant to favorites success window
+### "Save to favorites" success window
 
 ![add plant to favorites](/src/assets/images/add-plant.png)
 
-###Mobile view
+### Mobile view
 
 ![mobile view](/src/assets/images/mobile-view.svg)
