@@ -14,6 +14,7 @@ https://github.com/mieko61/mieko-tominaga-capstone-server.git
 - [API Usage](#api-usage)
 - [Preview](#preview)
 - [Next Steps](#next-steps)
+- [References](#references)
 
 ## Features
 
@@ -118,3 +119,9 @@ import axios from "axios";
 ## Next Steps
 
 Based on the feedback received, the next feature I would like to implement would be to render actual products users could reference. For instance, if a user clicks on 'eucalyptus', aside from the plant description, they would also see a list of eucalyptus products such as tea, oil, and essence. This would make the app more useful and would bring the user a step closer to treating their health issue.
+
+## References
+
+All plant descriptions and illustrations belong to Memorial Sloan Kettering Cancer Center's About Herbs database.
+
+https://www.mskcc.org/cancer-care/diagnosis-treatment/symptom-management/integrative-medicine/herbs/search
