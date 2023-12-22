@@ -13,6 +13,7 @@ https://github.com/mieko61/mieko-tominaga-capstone-server.git
 - [Installation](#installation)
 - [API Usage](#api-usage)
 - [Preview](#preview)
+- [Next Steps](#next-steps)
 
 ## Features
 
@@ -113,3 +114,7 @@ import axios from "axios";
 ### Mobile view
 
 ![mobile view](/src/assets/images/mobile-view.svg)
+
+## Next Steps
+
+Based on the feedback received, the next feature I would like to implement would be to render actual products users could reference. For instance, if a user clicks on 'eucalyptus', aside from the plant description, they would also see a list of eucalyptus products such as tea, oil, and essence. This would make the app more useful and would bring the user a step closer to treating their health issue.
