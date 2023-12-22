@@ -1,40 +1,68 @@
-# BOTANIC HUB 🌿 - front end
+# BOTANIC HUB 🌿 - client
 
-This app is an informational resource for medicinal herbs and plants. It allows users to select a specific health concern and returns a list of plants that could be used as treatment.
+This responsive app is an informational resource for medicinal herbs and plants. It allows users to select a specific health concern and returns a list of plants that could be used as treatment.
 
-## Back end - git clone
+## Server
 
 https://github.com/mieko61/mieko-tominaga-capstone-server.git
 
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [API Usage](#api-usage)
+- [Preview](#preview)
+
 ## Features
 
-- Categorized end uses: The plant data is organized by health concern.
-- Favorites: Users are able to save individual plants to their Favorites tab for easy access.
-- User authentication: Users can sign up and log in to their accounts in order to access their favorite plants.
+- 🗂️ **Categorized end uses:** The plant data is organized by health concern.
+- ⭐ **Favorites:** Users are able to save individual plants to their Favorites tab for easy access.
+- 🔒 **User authentication:** Users can sign up and log in to their accounts in order to access their favorite plants.
 
 ## Tech Stack
 
 - React
+- React-modal
+- React-router-dom
 - Sass
 - Axios
 
 ## Installation
 
-1. Clone the repository:
-   https://github.com/mieko61/mieko-tominaga-capstone-client.git
+1. Clone the repository
 
-2. Install dependencies:
+```bash
+  git clone https://github.com/mieko61/mieko-tominaga-capstone-client.git
+
+```
+
+2. Install dependencies
 
 ```bash
   npm i
 ```
 
-3. Set the API base URL to your locale server URL:
+3. Add the following environment variables to your .env file
 
-4. Run the server:
+```bash
+  REACT_APP_BASE_URL
+  PORT
+```
+
+4. Follow the instructions to run the [server](#server)  
+   <br>
+5. Run the client
 
 ```bash
   npm start
+```
+
+4. Register or use this account to log in
+
+```bash
+  email: miekotominaga@gmail.com
+  password: 123
 ```
 
 ## API Usage
@@ -56,10 +84,32 @@ import axios from "axios";
   }, []);
 ```
 
-## Environment Variables
+## PREVIEW
 
-To run this project, you will need to add the following environment variables to your .env file
+###Log in
 
-`REACT_APP_BASE_URL`
+![log in](/src/assets/images/login.png)
 
-`PORT`
+###Homepage
+
+![homepage](/src/assets/images/homepage.png)
+
+###Category selection
+
+![categories](/src/assets/images/categories.png)
+
+###Plant results
+
+![results](/src/assets/images/results.png)
+
+###Plant details with option to "Save to favorites"
+
+![plant details](/src/assets/images/plant-details.png)
+
+###Save plant to favorites success window
+
+![add plant to favorites](/src/assets/images/add-plant.png)
+
+###Mobile view
+
+![mobile view](/src/assets/images/mobile-view.svg)
