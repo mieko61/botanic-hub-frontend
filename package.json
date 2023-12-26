@@ -23,6 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "https://botanic-hub-backend.up.railway.app/",
   "eslintConfig": {
     "extends": [
       "react-app",
