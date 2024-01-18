@@ -1,13 +1,22 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import Modal from "react-modal";
+const express = require("express");
+const cors = require("cors");
+const app = express();
 
-Modal.setAppElement(document.getElementById("root"));
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const origin = process.env.CORS_ORIGIN;
 
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+app.use(
+  cors({
+    options: origin,
+  })
 );
+
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  console.log("route endpoint");
+  res.send("Welcome to Plant site");
+});
+
+app.listen(5050, function () {
+  console.log("running on port 5050");
+});
