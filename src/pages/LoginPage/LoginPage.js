@@ -4,7 +4,7 @@ import { useState } from "react";
 import Input from "../../components/Input/Input";
 import { useNavigate, Link } from "react-router-dom";
 
-let Login = ({ setIsLoggedIn }) => {
+const Login = ({ setIsLoggedIn }) => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 

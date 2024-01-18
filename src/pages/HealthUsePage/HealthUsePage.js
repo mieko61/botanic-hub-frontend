@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-let HealthUse = () => {
+const HealthUse = () => {
   const [allHealthUses, setAllHealthUses] = useState();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();

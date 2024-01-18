@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-let CategoryCard = ({ category }) => {
+const CategoryCard = ({ category }) => {
   const navigate = useNavigate();
   const handleRenderHealthUse = () => {
     navigate(`/healthUse?category=${category.id}`);

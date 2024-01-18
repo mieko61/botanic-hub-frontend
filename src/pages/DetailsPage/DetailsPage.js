@@ -6,7 +6,7 @@ import FavoritesModal from "../../components/FavoritesModal/FavoritesModal";
 import arrowIcon from "../../assets/images/icons/back.svg";
 import PlantUsePill from "../../components/PlantUsePill/PlantUsePill";
 
-let Details = () => {
+const Details = () => {
   const [plantDetails, setPlantDetails] = useState();
   const [plantUses, setPlantUses] = useState([]);
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ let Details = () => {
   const plant = searchParams.get("plant");
   const [error, setError] = useState(null);
 
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [updatedFavorites, setUpdatedFavorites] = useState();
 
   const handleReturnHome = () => {

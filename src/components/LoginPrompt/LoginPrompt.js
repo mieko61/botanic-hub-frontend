@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-let LoginPrompt = () => {
+const LoginPrompt = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {

@@ -2,7 +2,7 @@ import "./LogoutPage.scss";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-let SettingsPage = () => {
+const SettingsPage = () => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
