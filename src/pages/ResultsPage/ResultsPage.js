@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-let Results = () => {
+const Results = () => {
   const [allResults, setAllResults] = useState();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();

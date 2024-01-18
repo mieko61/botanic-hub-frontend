@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-let FavoritesCard = ({ favorite }) => {
+const FavoritesCard = ({ favorite }) => {
   const navigate = useNavigate();
   const handleRenderDetails = () => {
     navigate(`/favoriteplantdetails?plant=${favorite.plant_id}`);

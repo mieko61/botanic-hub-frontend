@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-let Signup = () => {
+const Signup = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
