@@ -1,6 +1,6 @@
 import "./Input.scss";
 
-let Input = ({ label, name, type }) => {
+const Input = ({ label, name, type }) => {
   return (
     <div className="input">
       <label className="input_label" htmlFor={name}>

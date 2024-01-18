@@ -4,13 +4,13 @@ import { useState, useEffect } from "react";
 import RemoveFavoritesModal from "../../components/RemoveFavoritesModal/RemoveFavoritesModal";
 import arrowIcon from "../../assets/images/icons/back.svg";
 
-let Details = () => {
+const Details = () => {
   const [plantDetails, setPlantDetails] = useState();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const plant = searchParams.get("plant");
 
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [updatedFavorites, setUpdatedFavorites] = useState();
 
   const handleReturnHome = () => {
@@ -26,7 +26,7 @@ let Details = () => {
     renderplantDetails();
   }, []);
 
-  let removePlant = async (plant) => {
+  const removePlant = async (plant) => {
     const apiBody = process.env.REACT_APP_BASE_URL;
     const plantToRemove = plant;
 

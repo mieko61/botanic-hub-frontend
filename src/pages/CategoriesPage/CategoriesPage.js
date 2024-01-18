@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-let Categories = () => {
+const Categories = () => {
   const [allCategories, setAllCategories] = useState();
   const navigate = useNavigate();
 

@@ -1,6 +1,6 @@
 import "./PlantUsePill.scss";
 
-let PlantUsePill = ({ healthUse }) => {
+const PlantUsePill = ({ healthUse }) => {
   return (
     <li>
       <div className="pill">{healthUse}</div>

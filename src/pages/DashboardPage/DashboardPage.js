@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import plantDrawing from "../../assets/images/plant.png";
 import LoginPrompt from "../../components/LoginPrompt/LoginPrompt";
 
-let Dashboard = () => {
+const Dashboard = () => {
   const [failedAuth, setFailedAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);

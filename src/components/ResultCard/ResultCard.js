@@ -1,7 +1,7 @@
 import "./ResultCard.scss";
 import { useNavigate } from "react-router-dom";
 
-let ResultCard = ({ plant }) => {
+const ResultCard = ({ plant }) => {
   const navigate = useNavigate();
 
   const handleRenderDetails = () => {

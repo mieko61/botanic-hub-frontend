@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-let HealthUseCard = ({ healthUse, category, userId }) => {
+const HealthUseCard = ({ healthUse, category, userId }) => {
   const navigate = useNavigate();
 
   const handleRenderResults = () => {
