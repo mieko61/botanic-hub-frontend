@@ -1,7 +1,6 @@
 import "./Header.scss";
 import logo from "../../assets/images/logo.svg";
-import { useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { ReactComponent as Heart } from "../../assets/images/icons/heart.svg";
 import { ReactComponent as Settings } from "../../assets/images/icons/user.svg";
 

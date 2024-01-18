@@ -3,7 +3,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import plantDrawing from "../../assets/images/plant.png";
-import LoginPrompt from "../../components/LoginPrompt/LoginPrompt";
 
 const Dashboard = () => {
   const [failedAuth, setFailedAuth] = useState(false);
@@ -49,7 +48,11 @@ const Dashboard = () => {
         <h1 className="dashboard__header">
           Hello, {data && data.name ? data.name : ""}
         </h1>
-        <img src={plantDrawing} className="dashboard__image" />
+        <img
+          src={plantDrawing}
+          className="dashboard__image"
+          alt="plant illustration"
+        />
         <h2 className="dashboard__body">
           Discover the power of plants and the benefits of herbal medicine.
         </h2>
