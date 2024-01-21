@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import FavoritesCard from "../../components/FavoritesCard/FavoritesCard";
-import LoginPrompt from "../../components/LoginPrompt/LoginPrompt";
 
 const FavoritesPage = () => {
   const [favorites, setFavorites] = useState();
