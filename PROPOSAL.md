@@ -145,7 +145,7 @@ Week 11:
 
 - Develop back-end logic
 - Test Puppeteer and endpoint requests
-- Connect front and backend
+- Connect front and back ends
 
 Week 12:
 
