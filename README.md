@@ -12,7 +12,7 @@ https://github.com/mieko61/mieko-tominaga-capstone-server.git
 - [Tech Stack](#tech-stack)
 - [Installation](#installation)
 - [API Usage](#api-usage)
-- [Preview](#preview)
+<!-- - [Preview](#preview) -->
 - [Next Steps](#next-steps)
 - [References](#references)
 
@@ -86,7 +86,7 @@ import axios from "axios";
   }, []);
 ```
 
-## PREVIEW
+<!-- ## PREVIEW
 
 ### Log in
 
@@ -114,7 +114,7 @@ import axios from "axios";
 
 ### Mobile view
 
-![mobile view](/src/assets/images/mobile-view.svg)
+![mobile view](/src/assets/images/mobile-view.svg) -->
 
 ## Next Steps
 
